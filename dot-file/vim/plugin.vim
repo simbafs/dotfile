@@ -29,4 +29,3 @@ Plug 'isruslan/vim-es6'
 call plug#end()
 "autocmd FileType javascript setlocal omnifunc=tern#Complete
 "set completeopt-=preview
-" so ~/.vim/AnsiEsc_v2.vim

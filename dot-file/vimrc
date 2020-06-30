@@ -9,23 +9,20 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set nowrap
+set incsearch 
+set autoindent
+set cindent
+set smartindent
 
 so ~/.vim/plugin.vim
 "au VimEnter *  NERDTree
 
-" set fileencodings=utf8,big5,gbk,latin1
-" set fileencoding=big5
-" set <C-u>=^U
-" set <C-b>=^B
-" map <C-u> :set fileencoding=utf8
-" map <C-b> :set fileencoding=big5
-
 "YouCompleteMe
 "let g:ycm_global_ycm_extra_conf = '~/the path/to/your/.ycm_extra_conf.py'
 
-" Start autocompletion after 4 chars
+" Start autocompletion after 2 chars
 let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_enable_diagnostic_highlighting = 0
 " Don't show YCM's preview window [ I find it really annoying ]
 set completeopt-=preview
@@ -36,7 +33,7 @@ let g:ycm_complete_in_strings = 1
 set laststatus=2
 
 "set up for othree/javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery, angularjs, angularui, angularuirouter'
+let g:used_javascript_libs = ''
 
 "set for css autocomplete
 " let g:ycm_semantic_triggers = {
@@ -56,9 +53,9 @@ nmap <S-@> :%s/  /\t/g
 nmap <C-b> :!bash
 
 au BufReadPost *.ejs set syntax=html
-set fileencodings=utf8,big5,gbk,latin1
-set fileencoding=big5
-set <C-u>=^U
-set <C-b>=^B
-map <C-u> :set fileencoding=utf8
-map <C-b> :set fileencoding=big5
+" set fileencodings=utf8,big5,gbk,latin1
+" set fileencoding=big5
+" set <C-u>=^U
+" set <C-b>=^B
+" map <C-u> :set fileencoding=utf8
+" map <C-b> :set fileencoding=big5
