@@ -9,25 +9,26 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set nowrap
-set incsearch 
+set incsearch
 set autoindent
 set cindent
 set smartindent
 
+" code folding
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 so ~/.vim/plugin.vim
-"au VimEnter *  NERDTree
+" au VimEnter *  NERDTree
 
 "YouCompleteMe
-"let g:ycm_global_ycm_extra_conf = '~/the path/to/your/.ycm_extra_conf.py'
-
 " Start autocompletion after 2 chars
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_enable_diagnostic_highlighting = 0
-" Don't show YCM's preview window [ I find it really annoying ]
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_complete_in_strings = 1
+nmap gd :YcmCompleter GoToDefinition<CR>
 
 "make lightline work in single screen
 set laststatus=2
@@ -35,27 +36,44 @@ set laststatus=2
 "set up for othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = ''
 
-"set for css autocomplete
-" let g:ycm_semantic_triggers = {
-"   \   'scss,sass,css': [ 're!^\s{4}', 're!:\s+' ],
-"   \   'html': ['<', '"', '</', ' '],
-"   \ }
-
 " add by simba
-map <tab> :s/^/\t
-map <S-tab> :s/^\t/
+nmap <tab> :s/^/\t<CR>
+nmap <S-tab> :s/^\t/<CR>
 nmap <F8> :TagbarToggle<CR>
-nmap <F2> i#!/bin/bash
-nmap <F3> :r! cat
-nmap <F5> :NERDTreeToggle
-nmap <C-s> :w
-nmap <S-@> :%s/  /\t/g
-nmap <C-b> :!bash
+nmap <F2> i#!/bin/bash<CR>
+nmap <F3> :r! cat<CR>
+nmap <F5> :NERDTreeToggle<CR>
+nmap <S-@> :%s/  /\t/g<CR>
+nmap <C-b> :!bash<CR>
 
 au BufReadPost *.ejs set syntax=html
-" set fileencodings=utf8,big5,gbk,latin1
-" set fileencoding=big5
-" set <C-u>=^U
-" set <C-b>=^B
-" map <C-u> :set fileencoding=utf8
-" map <C-b> :set fileencoding=big5
+
+" instant markdown d
+let g:instant_markdown_slow = 1
+let g:instant_markdown_mathjax = 1
+
+" vim-autoformat
+nmap f :Autoformat<CR>
+
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+
+" preservim/nerdcommenter
+filetype plugin on
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
