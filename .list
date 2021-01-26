@@ -1,5 +1,5 @@
-bash
-bashrc
-tmux.conf
-vimrc
-vim/plugin.vim
+.bash
+.bashrc
+.tmux.conf
+.vimrc
+.vim/plugin.vim

@@ -1,3 +1,4 @@
+#!/bin/bash
 ######################################
 ##              CAUTION             ## 
 ## Only run this script on simba-nb ##
@@ -24,9 +25,11 @@ rm -rf $to
 mkdir $to
 
 for i in $(cat $list);do
+	echo $i
+	echo cp -r $from/$i $to/$i;
+
 	mkdir -p $(dirname $to/$i);
-	cp -r $from/.$i $to/$i;
+	cp -r $from/$i $to/$i;
 done;
 
 echo finish;
-

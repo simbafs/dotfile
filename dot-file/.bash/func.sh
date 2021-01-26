@@ -8,7 +8,8 @@
 #	fi
 # }
 
-json(){
-	t="curl -s --header \"Content-Type: application/json\" --data '$2' \"$1\" | jq \".\""
-	bash -c $t
-}
+# json(){
+#     t="curl -s --header \"Content-Type: application/json\" --data '$2' \"$1\" | jq \".\""
+#     bash -c $t
+# }
+#

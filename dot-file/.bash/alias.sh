@@ -1,5 +1,6 @@
 alias rm='rm -r'
 alias cp='cp -r'
+alias ls='ls -hlF --color=auto'
 alias pwd=dirs
 alias ..='cd ../'
 alias qemu-iso='sudo qemu-system-x86_64 -m 2048 -boot d -enable-kvm -net nic -net user -cdrom'
@@ -15,7 +16,8 @@ alias ckcsc='ssh -p 25 ckcsc'
 alias b52u8='iconv -f BIG-5 -t UTF-8'
 alias du='du -sh'
 alias tree='tree -l -I node_modules'
-alias request='curl -s --header "Content-Type: application/json"'
-alias poweroff='sudo poweroff'
 alias arp='arp -a'
 alias vps='ssh simba-vps'
+alias where=which
+alias port='netstat -antpl'
+alias screenoff='xset dpms force off'
