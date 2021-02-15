@@ -35,3 +35,6 @@ au FileType text set wrap
 " ejs
 au BufNewFile,BufRead *.ejs setf ejs
 au FileType ejs set syntax=html
+
+" alias W to w
+command W w

@@ -76,6 +76,7 @@ Plug 'isruslan/vim-es6'
 Plug 'maxmellon/vim-jsx-pretty'
 " fix jsx tag color for vim-jsx-pretty
 hi link jsxPunct Directory
+hi link jsxCloseString Directory
 
 
 " css

@@ -3,3 +3,4 @@
 .tmux.conf
 .vimrc
 .vim/plugin.vim
+.zshrc
