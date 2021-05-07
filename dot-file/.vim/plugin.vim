@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdtree'
 nmap <F5> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+	\ quit | endif
 
 Plug 'jiangmiao/auto-pairs'
 au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
@@ -29,6 +29,11 @@ nmap gd :YcmCompleter GoToDefinition<CR>
 " let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" Apply YCM FixIt
+map <F9> :YcmCompleter FixIt<CR>
+" nmap f :YcmCompleter Format<CR>
+" ycm extra conf
+let g:ycm_global_ycm_extra_conf = '/home/simba/.vim/.ycm_extra_conf.py'
 
 Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -40,6 +45,14 @@ Plug 'junegunn/vim-easy-align'
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+Plug 'dkarter/bullets.vim'
+" let g:bullets_enabled_file_types = [
+"     \ 'markdown',
+"     \ 'text',
+"     \ 'gitcommit',
+"     \ 'scratch'
+"     \]
 
 Plug 'Chiel92/vim-autoformat'
 nmap f :Autoformat<CR>
@@ -86,5 +99,11 @@ Plug 'ap/vim-css-color'
 " c / cpp
 " Plug 'bfrg/vim-cpp-modern'
 
+
+" mindustry
+Plug 'purofle/vim-mindustry-logic'
+
+Plug 'mbbill/undotree'
+nnoremap <F6> :UndotreeToggle<CR>
 
 call plug#end()

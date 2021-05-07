@@ -16,7 +16,7 @@ set cindent
 set smartindent
 
 " code folding
-set foldmethod=indent   
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
@@ -36,5 +36,23 @@ au FileType text set wrap
 au BufNewFile,BufRead *.ejs setf ejs
 au FileType ejs set syntax=html
 
-" alias W to w
+" alias
 command W w
+command Q q
+command Wq wq
+command WQ wq
+
+" nginx
+" au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* setfiletype nginx
+
+" toggle nu
+nmap <F7> :set invnumber<CR>
+" xclip
+
+" for powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
