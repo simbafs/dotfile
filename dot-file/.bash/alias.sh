@@ -27,3 +27,5 @@ alias grepFind='grep --exclude-dir=node_modules -nr . -e'
 alias czinit='commitizen init cz-conventional-changelog --save-dev --save-exact'
 alias arp='arp -nve'
 alias gr='cd $(git rev-parse --show-toplevel)'
+alias k=kubectl
+alias vi=nvim

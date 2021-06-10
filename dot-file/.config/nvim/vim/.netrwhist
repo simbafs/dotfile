@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/simba/.vim/plugged/vim-jsx-pretty/after/indent'
+let g:netrw_dirhist_4='/home/simba/.vim/plugged/vim-jsx-pretty/after/syntax'
+let g:netrw_dirhist_3='/home/simba/.vim/plugged/vim-jsx-pretty/after'
+let g:netrw_dirhist_2='/home/simba/.vim/plugged/vim-jsx-pretty/autoload/jsx_pretty'
+let g:netrw_dirhist_1='/home/simba/.vim/plugged/vim-jsx-pretty/autoload'

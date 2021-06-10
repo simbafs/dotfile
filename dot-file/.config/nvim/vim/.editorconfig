@@ -1,0 +1,24 @@
+;.editorconfig
+
+; vim-jsbeautify
+root = true
+
+[**.js]
+indent_style = tab
+bin = node
+e4x = true
+
+[**.json]
+indent_style = tab
+
+[**.jsx]
+indent_size = 4
+e4x = true
+
+[**.css]
+indent_size = 4
+
+[**.html]
+indent_size = 4
+max_char = 78
+brace_style = expand

@@ -1,63 +1,73 @@
 call plug#begin('~/.vim/plugged')
 
+" those look pretty cool, but it doesn't work
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'ruifm/gitlinker.nvim'
+" Plug 'ekickx/clipboard-image.nvim'
+" Plug 'numToStr/Navigator.nvim'
+
+" icon, want to install but I need to fix font problem first
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'yamatsum/nvim-nonicons'
+
+" more snippets
+Plug 'rafamadriz/friendly-snippets'
+Plug 'hrsh7th/vim-vsnip'
+
+" black the inactive window
+Plug 'sunjon/shade.nvim'
+
 Plug 'airblade/vim-gitgutter'
 
 Plug 'itchyny/lightline.vim'
-"make lightline work in single screen
-set laststatus=2
-
-" Plug 'tpope/vim-pathogen'
-
-" Plug 'mattn/webapi-vim'
 
 Plug 'mattn/emmet-vim'
-" let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
-" let g:user_emmet_install_global = 0
-" au FileType html,css,ejs,jsx EmmetInstall
+
+Plug 'honza/vim-snippets'
 
 Plug 'scrooloose/nerdtree'
 nmap <F5> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-	\ quit | endif
+			\ quit | endif
 
 Plug 'jiangmiao/auto-pairs'
 au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
 au FileType html let b:AutoPairs = AutoPairsDefine({'<!--': '-->'})
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clangd-completer' }
-" Start autocompletion after 2 chars
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_enable_diagnostic_highlighting = 0
-nmap gd :YcmCompleter GoToDefinition<CR>
-" let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-" Apply YCM FixIt
-map <F9> :YcmCompleter FixIt<CR>
-" nmap f :YcmCompleter Format<CR>
-" ycm extra conf
-let g:ycm_global_ycm_extra_conf = '/home/simba/.vim/.ycm_extra_conf.py'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" coc-yank
+" use space-y to open yank history
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
-Plug 'othree/javascript-libraries-syntax.vim'
+" coc-react-refactor
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" coc-snippet
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+" Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
-Plug 'junegunn/vim-easy-align'
-" Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+" markdown
 
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 Plug 'dkarter/bullets.vim'
-" let g:bullets_enabled_file_types = [
-"     \ 'markdown',
-"     \ 'text',
-"     \ 'gitcommit',
-"     \ 'scratch'
-"     \]
 
 Plug 'Chiel92/vim-autoformat'
 let g:python3_host_prog="/usr/bin/python3"
@@ -79,15 +89,14 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+"" syntax
 
 Plug 'ekalinin/Dockerfile.vim'
 
-Plug 'editorconfig/editorconfig-vim'
-
-
-" js / jsx
+" js / jsx / ts
 Plug 'pangloss/vim-javascript'
 
 Plug 'isruslan/vim-es6'
@@ -97,22 +106,17 @@ Plug 'maxmellon/vim-jsx-pretty'
 hi link jsxPunct Directory
 hi link jsxCloseString Directory
 
+Plug 'HerringtonDarkholme/yats.vim'
 
 " css
 Plug 'ap/vim-css-color'
 
 
 " c / cpp
-" Plug 'bfrg/vim-cpp-modern'
-
-
-" mindustry
-" Plug 'purofle/vim-mindustry-logic'
+Plug 'bfrg/vim-cpp-modern'
 
 Plug 'mbbill/undotree'
 nnoremap <F6> :UndotreeToggle<CR>
-
-Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'ahw/vim-hooks'
 

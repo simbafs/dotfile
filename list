@@ -4,4 +4,4 @@
 .vimrc
 .vim/plugin.vim
 .zshrc
-.oh-my-zsh
+.config/nvim

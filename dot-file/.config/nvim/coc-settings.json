@@ -1,0 +1,5 @@
+{
+	"yaml.format.enable": true,
+	"javascript.suggestionActions.enabled": false,
+	"javascript.showUnused": false
+}

@@ -56,3 +56,7 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 set laststatus=2
+autocmd BufNewFile,BufRead *.ts set syntax=javascript
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
