@@ -4,7 +4,7 @@ syntax on
 " install vim-plug:
 " sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
 "        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-so ~/.config/nvim/vim/plugin.vim
+so ~/.config/nvim/plugin.vim
 
 " available color schema
 " blue darkblue default delek desert elflord evening industry koehler 
