@@ -7,8 +7,8 @@ syntax on
 so ~/.config/nvim/plugin.vim
 
 " available color schema
-" blue darkblue default delek desert elflord evening industry koehler 
-" morning  murphy pablo peachpuff ron shine slate torte zellner 
+" blue darkblue default delek desert elflord evening industry koehler
+" morning  murphy pablo peachpuff ron shine slate torte zellner
 set t_Co=256
 set t_ut=
 colorscheme koehler
@@ -31,7 +31,8 @@ set laststatus=2
 au FileType markdown set wrap
 au FileType text set wrap
 " ejs
-au BufNewFile,BufRead *.ejs setf ejs
+" https://vi.stackexchange.com/questions/16341/what-is-the-difference-between-set-ft-and-setfiletype
+au BufNew,BufNewFile,BufRead *.ejs :set filetype=ejs
 au FileType ejs set syntax=html
 " nginx
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* setfiletype nginx
