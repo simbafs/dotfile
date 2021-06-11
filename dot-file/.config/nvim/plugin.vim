@@ -36,27 +36,7 @@ au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
 au FileType html let b:AutoPairs = AutoPairsDefine({'<!--': '-->'})
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" coc-yank
-" use space-y to open yank history
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-" coc-react-refactor
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" coc-snippet
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
+so ~/.config/nvim/coc-config.vim
 
 " Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -85,6 +65,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = { 'ejs': { 'left': '<!--','right': '-->' } }
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
