@@ -20,6 +20,7 @@ Plug 'sunjon/shade.nvim'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'itchyny/lightline.vim'
+set laststatus=2
 
 Plug 'mattn/emmet-vim'
 
@@ -51,7 +52,13 @@ Plug 'dkarter/bullets.vim'
 
 Plug 'Chiel92/vim-autoformat'
 let g:python3_host_prog="/usr/bin/python3"
-nmap f :Autoformat<CR>
+nmap <leader>f :Autoformat<CR>
+
+Plug 'junegunn/vim-easy-align'
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
+Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'preservim/nerdcommenter'
 filetype plugin on
@@ -73,8 +80,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
-"" syntax
-
+" docker
 Plug 'ekalinin/Dockerfile.vim'
 
 " js / jsx / ts
@@ -100,5 +106,15 @@ Plug 'mbbill/undotree'
 nnoremap <F6> :UndotreeToggle<CR>
 
 " Plug 'ahw/vim-hooks'
+
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'cespare/vim-toml'
+
+Plug 'lifepillar/vim-colortemplate'
+
+" Plug 'glacambre/firenvim'
+
+Plug 'isobit/vim-caddyfile'
 
 call plug#end()

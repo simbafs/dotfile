@@ -1,5 +1,12 @@
 {
 	"yaml.format.enable": true,
 	"javascript.suggestionActions.enabled": false,
-	"javascript.showUnused": false
+	"javascript.showUnused": false,
+	"clangd.path": "/home/simba/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+	"coc.preferences.rootPatterns": [".git", "package.json", "go.mod"],
+	"go.tags": {
+		"tags": "json",
+		"transform": "camelcase",
+		"options": ""
+	}
 }

@@ -1,8 +1,39 @@
 if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]];then
 	exec tmux
 else
-	autoload -Uz compinit
-	compinit
+	source ~/.zplug/init.zsh
+
+	zplug "romkatv/powerlevel10k", as:theme, depth:1
+	zplug "zsh-users/zsh-autosuggestions"
+	bindkey "$terminfo[kcuu1]" history-substring-search-up
+	bindkey "$terminfo[kcud1]" history-substring-search-down
+
+	zplug 'zsh-users/zsh-history-substring-search'
+	zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+	# zplug 'MichaelAquilina/zsh-auto-notify'
+	# export AUTO_NOTIFY_IGNORE=("docker" "man" "vim", "vi", "sleep", "apt", "su")
+
+	zplug 'marlonrichert/zsh-autocomplete'
+	zplug 'hlissner/zsh-autopair'
+	# zplug 'b4b4r07/emoji-cli'
+	# EMOJI_CLI_KEYBIND=^e
+
+	# zplug 'reegnz/jq-zsh-plugin'
+	# alt + j
+	
+	# zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+	# zplug "plugins/virtualenv", from:oh-my-zsh
+
+	zplug 'zchee/zsh-completions'
+
+	# Install plugins if there are plugins that have not been installed
+	if ! zplug check --verbose; then
+		printf "Install? [y/N]: "
+		if read -q; then
+			echo; zplug install
+		fi
+	fi
+
 	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 	# Initialization code that may require console input (password prompts, [y/n]
 	# confirmations, etc.) must go above this block; everything else may go below.
@@ -10,137 +41,66 @@ else
 		source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 	fi
 
-	# If you come from bash you might have to change your $PATH.
-	# export PATH=$HOME/bin:/usr/local/bin:$PATH
+	# Then, source plugins and add commands to $PATH
+	zplug load
 
-	# Path to your oh-my-zsh installation.
-	export ZSH="/home/simba/.oh-my-zsh"
+	deleteWord(){
+		local WORDCHARS=${WORDCHARS/\//}
+		zle backward-delete-word
+	}
+	zle -N deleteWord
+	bindkey '^W' deleteWord
 
-	# Set name of the theme to load --- if set to "random", it will
-	# load a random theme each time oh-my-zsh is loaded, in which case,
-	# to know which specific one was loaded, run: echo $RANDOM_THEME
-	# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-	ZSH_THEME="robbyrussell"
 
-	# Set list of themes to pick from when loading at random
-	# Setting this variable when ZSH_THEME=random will cause zsh to load
-	# a theme from this variable instead of looking in $ZSH/themes/
-	# If set to an empty array, this variable will have no effect.
-	# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+	# The following lines were added by compinstall
 
-	# Uncomment the following line to use case-sensitive completion.
-	CASE_SENSITIVE="true"
+	zstyle ':completion:*' completer _complete _ignored _correct
+	zstyle ':completion:*' menu yes select
+	zstyle :compinstall filename '/home/simba/.zshrc'
+	# case sensitive
+	zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-	# Uncomment the following line to use hyphen-insensitive completion.
-	# Case-sensitive completion must be off. _ and - will be interchangeable.
-	# HYPHEN_INSENSITIVE="true"
+	autoload -Uz compinit
+	compinit
+	# End of lines added by compinstall
 
-	# Uncomment the following line to disable bi-weekly auto-update checks.
-	# DISABLE_AUTO_UPDATE="true"
+	SAVEHIST=1000
+	export HISTFILE=~/.zsh_history
+	setopt share_history
 
-	# Uncomment the following line to automatically update without prompting.
-	# DISABLE_UPDATE_PROMPT="true"
+	# zsh-autocomplete configure
+	# Up arrow:
+	# bindkey '\e[A' up-line-or-search
+	# bindkey '\eOA' up-line-or-search
+	# up-line-or-search:  Open history menu.
+	# up-line-or-history: Cycle to previous history line.
+	
+	# Down arrow:
+	bindkey '\e[B' down-line-or-select
+	bindkey '\eOB' down-line-or-select
+	# down-line-or-select:  Open completion menu.
+	# down-line-or-history: Cycle to next history line.
+	
 
-	# Uncomment the following line to change how often to auto-update (in days).
-	# export UPDATE_ZSH_DAYS=13
+	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-	# Uncomment the following line if pasting URLs and other text is messed up.
-	# DISABLE_MAGIC_FUNCTIONS="true"
-
-	# Uncomment the following line to disable colors in ls.
-	# DISABLE_LS_COLORS="true"
-
-	# Uncomment the following line to disable auto-setting terminal title.
-	# DISABLE_AUTO_TITLE="true"
-
-	# Uncomment the following line to enable command auto-correction.
-	# ENABLE_CORRECTION="true"
-
-	# Uncomment the following line to display red dots whilst waiting for completion.
-	# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-	# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-	# COMPLETION_WAITING_DOTS="true"
-
-	# Uncomment the following line if you want to disable marking untracked files
-	# under VCS as dirty. This makes repository status check for large repositories
-	# much, much faster.
-	# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-	# Uncomment the following line if you want to change the command execution time
-	# stamp shown in the history command output.
-	# You can set one of the optional three formats:
-	# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-	# or set a custom format using the strftime function format specifications,
-	# see 'man strftime' for details.
-	# HIST_STAMPS="mm/dd/yyyy"
-
-	# Would you like to use another custom folder than $ZSH/custom?
-	# ZSH_CUSTOM=/path/to/new-custom-folder
-
-	# Which plugins would you like to load?
-	# Standard plugins can be found in $ZSH/plugins/
-	# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-	# Example format: plugins=(rails git textmate ruby lighthouse)
-	# Add wisely, as too many plugins slow down shell startup.
-	plugins=(git zsh-autosuggestions docker docker-compose gh)
-
-	source $ZSH/oh-my-zsh.sh
-
-	# User configuration
-
-	# export MANPATH="/usr/local/man:$MANPATH"
-
-	# You may need to manually set your language environment
-	# export LANG=en_US.UTF-8
-
-	# Preferred editor for local and remote sessions
-	# if [[ -n $SSH_CONNECTION ]]; then
-	#   export EDITOR='vim'
-	# else
-	#   export EDITOR='mvim'
-	# fi
-	export EDITOR='vim'
-
-	# Compilation flags
-	# export ARCHFLAGS="-arch x86_64"
-
-	# Set personal aliases, overriding those provided by oh-my-zsh libs,
-	# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-	# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-	# For a full list of active aliases, run `alias`.
-	#
-	# Example aliases
-	# alias zshconfig="mate ~/.zshrc"
-	# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-	. ~/.bash/alias.sh
-	. ~/.bash/init.sh
-	. ~/.bash/func.sh
-	complete -F __start_kubectl k
+	source $HOME/.bash/*
 
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-	# Powerline configuration
-	if [ -f /usr/share/powerline/bindings/bash/powerline.sh  ]; then
-		powerline-daemon -q
-		POWERLINE_BASH_CONTINUATION=1
-		POWERLINE_BASH_SELECT=1
-		source /usr/share/powerline/bindings/bash/powerline.sh
-	fi
-	source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-	#
-	# exec /home/simba/bin/Write/setup.sh
+	# python
+	export PATH=$HOME/.local/bin:$PATH
 
 	# deno
 	export DENO_INSTALL="/home/simba/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
-	
-	source <(kubectl completion zsh)
-	source <(minikube completion zsh)
 
+	# go
+	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
+
+	hugo completion zsh > "${fpath[1]}/_hugo"
+	qrcp completion zsh > "${fpath[1]}/_qrcp"
 fi

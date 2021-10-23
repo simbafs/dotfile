@@ -24,8 +24,7 @@ set autoindent
 set cindent
 set smartindent
 set cursorline
-"make lightline work in single screen
-set laststatus=2
+set mouse=a
 
 " markdown
 au FileType markdown set wrap
@@ -57,6 +56,7 @@ map <tab> :s/^/\t<CR>
 map <S-tab> :s/^\t/<CR>
 nmap <F3> :r! cat<CR>
 nmap <F7> :set invnumber<CR>
+nmap cs :noh<CR>
 
 " alias
 command W w
@@ -68,3 +68,5 @@ command WQ wq
 " https://vi.stackexchange.com/questions/23328/change-color-of-coc-suggestion-box
 hi Pmenu ctermbg=black ctermfg=white
 hi Ignore ctermbg=black ctermfg=lightblue
+hi CursorLine cterm=none ctermbg=238
+hi CursorLineNr ctermbg=245

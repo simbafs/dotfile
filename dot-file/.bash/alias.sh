@@ -15,17 +15,23 @@ alias bbs='ssh -p 25 bbsu@bbs.ckcsc.net'
 alias ckcsc='ssh -p 25 ckcsc'
 alias b52u8='iconv -f BIG-5 -t UTF-8'
 alias du='du -sh'
-alias tree="tree -alI 'node_modules|.git'"
+alias tree="tree -alI 'node_modules|.git|.next|out'"
 alias arp='arp -a'
 alias vps='ssh simba-vps'
-alias where=which
 alias port='netstat -antpl'
 alias screenoff='xset dpms force off'
 alias r='ranger; clear'
 alias screenRotate='xrandr --output eDP --rotate'
+alias grep='grep --color=always'
 alias grepFind='grep --exclude-dir=node_modules -nr . -e'
 alias czinit='commitizen init cz-conventional-changelog --save-dev --save-exact'
 alias arp='arp -nve'
 alias gr='cd $(git rev-parse --show-toplevel)'
-alias k=kubectl
+# alias k=kubectl
 alias vi=nvim
+alias vim=nvim
+alias mkdir='mkdir -p'
+alias t=tmux
+alias ptt='ssh bbsu@ptt.cc'
+alias copy='xclip -sel clip'
+alias free='free -h'
