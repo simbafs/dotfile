@@ -18,7 +18,8 @@ let g:coc_global_extensions = [
 \ 'coc-xml',
 \ 'coc-yaml',
 \ 'coc-yank',
-\ 'coc-python'
+\ 'coc-python',
+\ 'coc-pyright'
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

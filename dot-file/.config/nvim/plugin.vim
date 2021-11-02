@@ -13,18 +13,19 @@ call plug#begin('~/.vim/plugged')
 " more snippets
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'honza/vim-snippets'
 
 " black the inactive window
-Plug 'sunjon/shade.nvim'
+" Plug 'sunjon/shade.nvim'
 
 Plug 'airblade/vim-gitgutter'
+" fix column problem https://www.reddit.com/r/neovim/comments/f04fao/my_biggest_vimneovim_wish_single_width_sign_column/
+set signcolumn=yes:1
 
 Plug 'itchyny/lightline.vim'
 set laststatus=2
 
 Plug 'mattn/emmet-vim'
-
-Plug 'honza/vim-snippets'
 
 Plug 'scrooloose/nerdtree'
 nmap <F5> :NERDTreeToggle<CR>
@@ -41,14 +42,14 @@ so ~/.config/nvim/coc-config.vim
 
 " Plug 'othree/javascript-libraries-syntax.vim'
 
-Plug 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
+" Plug 'majutsushi/tagbar'
+" nmap <F8> :TagbarToggle<CR>
 
 " markdown
 
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
-Plug 'dkarter/bullets.vim'
+" Plug 'dkarter/bullets.vim'
 
 Plug 'Chiel92/vim-autoformat'
 let g:python3_host_prog="/usr/bin/python3"
@@ -58,7 +59,7 @@ Plug 'junegunn/vim-easy-align'
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-Plug 'mzlogin/vim-markdown-toc'
+" Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'preservim/nerdcommenter'
 filetype plugin on
@@ -111,10 +112,12 @@ nnoremap <F6> :UndotreeToggle<CR>
 
 Plug 'cespare/vim-toml'
 
-Plug 'lifepillar/vim-colortemplate'
+" Plug 'lifepillar/vim-colortemplate'
 
 " Plug 'glacambre/firenvim'
 
 Plug 'isobit/vim-caddyfile'
+
+" Plug 'github/copilot.vim'
 
 call plug#end()
