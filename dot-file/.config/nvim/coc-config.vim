@@ -1,7 +1,6 @@
 let g:coc_global_extensions = [
 \ 'coc-clangd',
 \ 'coc-css',
-\ 'coc-discord-rpc',
 \ 'coc-docker',
 \ 'coc-docthis',
 \ 'coc-format-json',
@@ -21,6 +20,8 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-pyright'
 \ ]
+
+" \ 'coc-discord-rpc',
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

@@ -26,6 +26,8 @@ else
 
 	zplug 'zchee/zsh-completions'
 
+	# zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
+
 	# Install plugins if there are plugins that have not been installed
 	if ! zplug check --verbose; then
 		printf "Install? [y/N]: "
@@ -106,3 +108,5 @@ else
 	hugo completion zsh > "${fpath[1]}/_hugo"
 	qrcp completion zsh > "${fpath[1]}/_qrcp"
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

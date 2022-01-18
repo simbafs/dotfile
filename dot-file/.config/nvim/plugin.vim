@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " those look pretty cool, but it doesn't work
 " Plug 'nvim-lua/plenary.nvim'
@@ -31,7 +31,7 @@ Plug 'scrooloose/nerdtree'
 nmap <F5> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-			\ quit | endif
+            \ quit | endif
 
 Plug 'jiangmiao/auto-pairs'
 au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
@@ -46,8 +46,7 @@ so ~/.config/nvim/coc-config.vim
 " nmap <F8> :TagbarToggle<CR>
 
 " markdown
-
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " Plug 'dkarter/bullets.vim'
 
@@ -118,6 +117,6 @@ Plug 'cespare/vim-toml'
 
 Plug 'isobit/vim-caddyfile'
 
-" Plug 'github/copilot.vim'
+Plug 'github/copilot.vim'
 
 call plug#end()
