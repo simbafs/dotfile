@@ -52,8 +52,8 @@ set nofoldenable
 set foldlevel=2
 
 " hotkey
-map <tab> :s/^/\t<CR>
-map <S-tab> :s/^\t/<CR>
+map <tab> >>
+map <S-tab> <<
 nmap <F3> :r! cat<CR>
 nmap <F7> :set invnumber<CR>
 nmap cs :noh<CR>

@@ -1,25 +1,26 @@
 let g:coc_global_extensions = [
-\ 'coc-clangd',
-\ 'coc-css',
-\ 'coc-docker',
-\ 'coc-docthis',
-\ 'coc-format-json',
-\ 'coc-go',
-\ 'coc-html',
-\ 'coc-json',
-\ 'coc-react-refactor',
-\ 'coc-sh',
-\ 'coc-snippets',
-\ 'coc-sql',
-\ 'coc-toml',
-\ 'coc-tsserver',
-\ 'coc-webpack',
-\ 'coc-xml',
-\ 'coc-yaml',
-\ 'coc-yank',
-\ 'coc-python',
-\ 'coc-pyright'
-\ ]
+			\ 'coc-clangd',
+			\ 'coc-css',
+			\ 'coc-docker',
+			\ 'coc-docthis',
+			\ 'coc-format-json',
+			\ 'coc-go',
+			\ 'coc-html',
+			\ 'coc-json',
+			\ 'coc-react-refactor',
+			\ 'coc-sh',
+			\ 'coc-snippets',
+			\ 'coc-sql',
+			\ 'coc-toml',
+			\ 'coc-tsserver',
+			\ 'coc-webpack',
+			\ 'coc-xml',
+			\ 'coc-yaml',
+			\ 'coc-yank',
+			\ 'coc-python',
+			\ 'coc-pyright',
+			\ 'coc-emmet'
+			\ ]
 
 " \ 'coc-discord-rpc',
 
@@ -31,46 +32,46 @@ let g:coc_global_extensions = [
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-	\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" " Always show the signcolumn, otherwise it would shift the text each time
+" " diagnostics appear/become resolved.
+" if has("nvim-0.5.0") || has("patch-8.1.1564")
+"     " Recently vim can merge signcolumn and number column into one
+"     set signcolumn=number
+" else
+"     set signcolumn=yes
+" endif
 
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 let g:lightline = {
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'cocstatus': 'coc#status'
-  \ },
-  \ }
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component_function': {
+			\   'cocstatus': 'coc#status'
+			\ },
+			\ }
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
@@ -86,13 +87,13 @@ nmap <silent> gd <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -144,10 +145,10 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " scroll popup menu
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif

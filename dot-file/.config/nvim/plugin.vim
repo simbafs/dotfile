@@ -6,7 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'ekickx/clipboard-image.nvim'
 " Plug 'numToStr/Navigator.nvim'
 
-" icon, want to install but I need to fix font problem first
+" icon, I want to install but I need to fix font problem first
 " Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'yamatsum/nvim-nonicons'
 
@@ -20,7 +20,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'airblade/vim-gitgutter'
 " fix column problem https://www.reddit.com/r/neovim/comments/f04fao/my_biggest_vimneovim_wish_single_width_sign_column/
-set signcolumn=yes:1
+set signcolumn=yes
 
 Plug 'itchyny/lightline.vim'
 set laststatus=2
@@ -32,6 +32,9 @@ nmap <F5> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
             \ quit | endif
+autocmd FileType nerdtree setlocal signcolumn=no
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'jiangmiao/auto-pairs'
 au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
@@ -46,7 +49,21 @@ so ~/.config/nvim/coc-config.vim
 " nmap <F8> :TagbarToggle<CR>
 
 " markdown
-" Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
+
+" 這個設定怪怪的
+" Plug 'joker1007/vim-markdown-quote-syntax'
+" let g:markdown_quote_syntax_filetypes = {
+"         \ "jsx" : {
+"         \   "start" : "javascriptreact",
+"         \},
+"         \ "css" : {
+"         \   "start" : "\\%(css\\|scss\\)",
+"         \},
+"         \ "haml" : {
+"         \   "start" : "haml",
+"         \},
+"   \}
 
 " Plug 'dkarter/bullets.vim'
 
@@ -104,19 +121,27 @@ Plug 'bfrg/vim-cpp-modern'
 
 Plug 'mbbill/undotree'
 nnoremap <F6> :UndotreeToggle<CR>
+autocmd FileType undotree setlocal signcolumn=no
 
 " Plug 'ahw/vim-hooks'
 
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml', {'for': 'toml'}
 
 " Plug 'lifepillar/vim-colortemplate'
 
 " Plug 'glacambre/firenvim'
 
-Plug 'isobit/vim-caddyfile'
+Plug 'isobit/vim-caddyfile', {'for': 'caddyfile'}
 
 Plug 'github/copilot.vim'
+
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'romgrk/barbar.nvim'
+
+Plug 'kevinhwang91/vim-ibus-sw'
+
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()

@@ -32,6 +32,6 @@ alias vi=nvim
 alias vim=nvim
 alias mkdir='mkdir -p'
 alias t=tmux
-alias ptt='ssh bbsu@ptt.cc'
+alias ptt='ssh bbsu@ptt.cc; clear'
 alias copy='xclip -sel clip'
 alias free='free -h'

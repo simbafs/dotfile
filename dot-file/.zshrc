@@ -68,7 +68,7 @@ else
 
 	SAVEHIST=1000
 	export HISTFILE=~/.zsh_history
-	setopt share_history
+	# setopt share_history
 
 	# zsh-autocomplete configure
 	# Up arrow:
@@ -106,7 +106,10 @@ else
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
 	hugo completion zsh > "${fpath[1]}/_hugo"
-	qrcp completion zsh > "${fpath[1]}/_qrcp"
+	# ponzu completion zsh > "${fpath[1]}/_ponzu"
+	# qrcp completion zsh > "${fpath[1]}/_qrcp"
+	
+	source /home/simba/.gvm/scripts/gvm
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
