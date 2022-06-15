@@ -11,13 +11,16 @@ so ~/.config/nvim/plugin.vim
 " morning  murphy pablo peachpuff ron shine slate torte zellner
 set t_Co=256
 set t_ut=
-colorscheme koehler
-
+" colorscheme koehler
+colorscheme solarized
+so ~/.config/nvim/transparent.vim
+" set background=dark
+"
+set termguicolors
 set showcmd
 set nu
 set tabstop=4
 set shiftwidth=4
-set autoindent
 set nowrap
 set incsearch
 set autoindent
@@ -69,4 +72,16 @@ command WQ wq
 hi Pmenu ctermbg=black ctermfg=white
 hi Ignore ctermbg=black ctermfg=lightblue
 hi CursorLine cterm=none ctermbg=238
-hi CursorLineNr ctermbg=245
+hi CursorLineNr cterm=bold ctermfg=33 ctermbg=245
+
+if exists('+wrap')
+	map <UP> gk
+	map <DOWN> gj
+	map j gj
+	map k gk
+endif
+
+if exists('+colorcolumn')
+	set colorcolumn=120
+	hi ColorColumn ctermbg=240
+endif

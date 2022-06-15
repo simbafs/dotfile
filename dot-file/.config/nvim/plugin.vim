@@ -49,7 +49,7 @@ so ~/.config/nvim/coc-config.vim
 " nmap <F8> :TagbarToggle<CR>
 
 " markdown
-Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
+" Plug 'suan/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 
 " 這個設定怪怪的
 " Plug 'joker1007/vim-markdown-quote-syntax'
@@ -143,5 +143,12 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kevinhwang91/vim-ibus-sw'
 
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+" Plug 'mg979/vim-visual-multi'
+
+Plug 'fatih/vim-go'
+
+" color schemas
+Plug 'ericbn/vim-solarized'
 
 call plug#end()

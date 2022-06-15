@@ -8,5 +8,6 @@
 		"tags": "json",
 		"transform": "camelcase",
 		"options": ""
-	}
+	},
+	"python.linting.enabled": false
 }

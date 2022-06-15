@@ -13,14 +13,14 @@ else
 	# zplug 'MichaelAquilina/zsh-auto-notify'
 	# export AUTO_NOTIFY_IGNORE=("docker" "man" "vim", "vi", "sleep", "apt", "su")
 
-	zplug 'marlonrichert/zsh-autocomplete'
+	# zplug 'marlonrichert/zsh-autocomplete'
 	zplug 'hlissner/zsh-autopair'
 	# zplug 'b4b4r07/emoji-cli'
 	# EMOJI_CLI_KEYBIND=^e
 
 	# zplug 'reegnz/jq-zsh-plugin'
 	# alt + j
-	
+
 	# zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 	# zplug "plugins/virtualenv", from:oh-my-zsh
 
@@ -76,13 +76,13 @@ else
 	# bindkey '\eOA' up-line-or-search
 	# up-line-or-search:  Open history menu.
 	# up-line-or-history: Cycle to previous history line.
-	
+
 	# Down arrow:
 	bindkey '\e[B' down-line-or-select
 	bindkey '\eOB' down-line-or-select
 	# down-line-or-select:  Open completion menu.
 	# down-line-or-history: Cycle to next history line.
-	
+
 
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -94,6 +94,12 @@ else
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+	nvm use 16 > /dev/null
+
+	# pnpm
+	export PNPM_HOME="/home/simba/.local/share/pnpm"
+	export PATH="$PNPM_HOME:$PATH"
+	# pnpm end
 
 	# python
 	export PATH=$HOME/.local/bin:$PATH
@@ -105,11 +111,9 @@ else
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
-	hugo completion zsh > "${fpath[1]}/_hugo"
-	# ponzu completion zsh > "${fpath[1]}/_ponzu"
-	# qrcp completion zsh > "${fpath[1]}/_qrcp"
-	
 	source /home/simba/.gvm/scripts/gvm
-fi
+	gvm use 18 > /dev/null
+	hugo completion zsh > "${fpath[1]}/_hugo"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+	export PATH=/home/simba/bin:"$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fi
