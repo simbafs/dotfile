@@ -67,7 +67,7 @@ so ~/.config/nvim/coc-config.vim
 
 " Plug 'dkarter/bullets.vim'
 
-Plug 'Chiel92/vim-autoformat'
+Plug 'vim-autoformat/vim-autoformat'
 let g:python3_host_prog="/usr/bin/python3"
 nmap <leader>f :Autoformat<CR>
 
@@ -150,5 +150,11 @@ Plug 'fatih/vim-go'
 
 " color schemas
 Plug 'ericbn/vim-solarized'
+
+Plug 'ianding1/leetcode.vim'
+let g:leetcode_solution_filetype = 'go'
+let g:leetcode_browser = 'firefox'
+let g:leetcode_hide_paid_only = 1
+
 
 call plug#end()

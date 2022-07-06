@@ -27,6 +27,8 @@ else
 	zplug 'zchee/zsh-completions'
 
 	# zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
+	
+	zplug 'bobthecow/git-flow-completion'
 
 	# Install plugins if there are plugins that have not been installed
 	if ! zplug check --verbose; then
