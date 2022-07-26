@@ -60,6 +60,7 @@ map <S-tab> <<
 nmap <F3> :r! cat<CR>
 nmap <F7> :set invnumber<CR>
 nmap cs :noh<CR>
+nmap gr :GoRun<CR>
 
 " alias
 command W w
@@ -85,3 +86,5 @@ if exists('+colorcolumn')
 	set colorcolumn=120
 	hi ColorColumn ctermbg=240
 endif
+
+let g:markdown_fenced_languages = ['html', 'javascript', 'typescript', 'go', 'bash=sh']
