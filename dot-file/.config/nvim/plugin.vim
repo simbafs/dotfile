@@ -19,29 +19,29 @@ Plug 'honza/vim-snippets'
 " Plug 'sunjon/shade.nvim'
 
 Plug 'airblade/vim-gitgutter'
-" fix column problem https://www.reddit.com/r/neovim/comments/f04fao/my_biggest_vimneovim_wish_single_width_sign_column/
-set signcolumn=yes
+	" fix column problem https://www.reddit.com/r/neovim/comments/f04fao/my_biggest_vimneovim_wish_single_width_sign_column/
+	set signcolumn=yes
 
 Plug 'itchyny/lightline.vim'
-set laststatus=2
+	set laststatus=2
 
 Plug 'mattn/emmet-vim'
 
 Plug 'scrooloose/nerdtree'
-nmap <F5> :NERDTreeToggle<CR>
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-            \ quit | endif
-autocmd FileType nerdtree setlocal signcolumn=no
+	nmap <F5> :NERDTreeToggle<CR>
+	" Exit Vim if NERDTree is the only window left.
+	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+				\ quit | endif
+	autocmd FileType nerdtree setlocal signcolumn=no
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'jiangmiao/auto-pairs'
-au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
-au FileType html let b:AutoPairs = AutoPairsDefine({'<!--': '-->'})
+	au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
+	au FileType html let b:AutoPairs = AutoPairsDefine({'<!--': '-->'})
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-so ~/.config/nvim/coc-config.vim
+	so ~/.config/nvim/coc-config.vim
 
 " Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -67,35 +67,41 @@ so ~/.config/nvim/coc-config.vim
 
 " Plug 'dkarter/bullets.vim'
 
-Plug 'vim-autoformat/vim-autoformat'
-let g:python3_host_prog="/usr/bin/python3"
-nmap <leader>f :Autoformat<CR>
+Plug 'sbdchd/neoformat'
+	let g:neoformat_enabled_javascript = ['prettier']
+	let g:neoformat_javascript_prettier = {
+		\ 'exe': 'prettier',
+		\ 'args': ['--use-tabs', '--stdin-filepath', '"%:p"'],
+		\ 'stdin': 1,
+		\ 'try_node_exe': 1,
+		\ }
+	nmap <leader>f :Neoformat<CR>
 
 Plug 'junegunn/vim-easy-align'
-" Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+	" Align GitHub-flavored Markdown tables
+	au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " Plug 'mzlogin/vim-markdown-toc'
 
 Plug 'preservim/nerdcommenter'
-filetype plugin on
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let g:NERDCustomDelimiters = { 'ejs': { 'left': '<!--','right': '-->' } }
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
+	filetype plugin on
+	" Add spaces after comment delimiters by default
+	let g:NERDSpaceDelims = 1
+	" Use compact syntax for prettified multi-line comments
+	let g:NERDCompactSexyComs = 1
+	" Align line-wise comment delimiters flush left instead of following code indentation
+	let g:NERDDefaultAlign = 'left'
+	" Set a language to use its alternate delimiters by default
+	let g:NERDAltDelims_java = 1
+	" Add your own custom formats or override the defaults
+	let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+	let g:NERDCustomDelimiters = { 'ejs': { 'left': '<!--','right': '-->' } }
+	" Allow commenting and inverting empty lines (useful when commenting a region)
+	let g:NERDCommentEmptyLines = 1
+	" Enable trimming of trailing whitespace when uncommenting
+	let g:NERDTrimTrailingWhitespace = 1
+	" Enable NERDCommenterToggle to check all selected lines is commented or not
+	let g:NERDToggleCheckAllLines = 1
 
 " docker
 Plug 'ekalinin/Dockerfile.vim'
@@ -106,9 +112,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'isruslan/vim-es6'
 
 Plug 'maxmellon/vim-jsx-pretty'
-" fix jsx tag color for vim-jsx-pretty
-hi link jsxPunct Directory
-hi link jsxCloseString Directory
+	" fix jsx tag color for vim-jsx-pretty
+	hi link jsxPunct Directory
+	hi link jsxCloseString Directory
 
 Plug 'HerringtonDarkholme/yats.vim'
 
@@ -120,8 +126,8 @@ Plug 'ap/vim-css-color'
 Plug 'bfrg/vim-cpp-modern'
 
 Plug 'mbbill/undotree'
-nnoremap <F6> :UndotreeToggle<CR>
-autocmd FileType undotree setlocal signcolumn=no
+	nnoremap <F6> :UndotreeToggle<CR>
+	autocmd FileType undotree setlocal signcolumn=no
 
 " Plug 'ahw/vim-hooks'
 
@@ -133,14 +139,14 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 
 " Plug 'glacambre/firenvim'
 
-Plug 'isobit/vim-caddyfile', {'for': 'caddyfile'}
+" Plug 'isobit/vim-caddyfile', {'for': 'caddyfile'}
 
 Plug 'github/copilot.vim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'romgrk/barbar.nvim'
 
-Plug 'kevinhwang91/vim-ibus-sw'
+" Plug 'kevinhwang91/vim-ibus-sw'
 
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -152,9 +158,9 @@ Plug 'fatih/vim-go'
 Plug 'ericbn/vim-solarized'
 
 Plug 'ianding1/leetcode.vim'
-let g:leetcode_solution_filetype = 'go'
-let g:leetcode_browser = 'firefox'
-let g:leetcode_hide_paid_only = 1
+	let g:leetcode_solution_filetype = 'go'
+	let g:leetcode_browser = 'firefox'
+	let g:leetcode_hide_paid_only = 1
 
 
 call plug#end()

@@ -15,7 +15,7 @@ set t_ut=
 colorscheme solarized
 so ~/.config/nvim/transparent.vim
 " set background=dark
-"
+
 set termguicolors
 set showcmd
 set nu
@@ -57,10 +57,8 @@ set foldlevel=2
 " hotkey
 map <tab> >>
 map <S-tab> <<
-nmap <F3> :r! cat<CR>
-nmap <F7> :set invnumber<CR>
 nmap cs :noh<CR>
-nmap gr :GoRun<CR>
+au BufNewFile,BufRead *.go nmap gr :GoRun<CR>
 
 " alias
 command W w

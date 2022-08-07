@@ -9,3 +9,4 @@
 .config/nvim/init.vim
 .config/nvim/plugin.vim
 .config/nvim/transparent.vim
+.gitconfig
