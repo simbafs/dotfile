@@ -39,6 +39,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
 	au FileType ejs let b:AutoPairs = AutoPairsDefine({'<%': '%>', '<!--': '-->'})
 	au FileType html let b:AutoPairs = AutoPairsDefine({'<!--': '-->'})
+				
+Plug 'tpope/vim-surround'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	so ~/.config/nvim/coc-config.vim
@@ -162,5 +164,7 @@ Plug 'ianding1/leetcode.vim'
 	let g:leetcode_browser = 'firefox'
 	let g:leetcode_hide_paid_only = 1
 
+" 作者還沒完成
+" Plug 'yaegassy/coc-marksman', {'do': 'pnpm install --frozen-lockfile'}
 
 call plug#end()

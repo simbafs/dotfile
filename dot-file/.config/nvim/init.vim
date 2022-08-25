@@ -57,7 +57,7 @@ set foldlevel=2
 " hotkey
 map <tab> >>
 map <S-tab> <<
-nmap cs :noh<CR>
+nmap ch :noh<CR>
 au BufNewFile,BufRead *.go nmap gr :GoRun<CR>
 
 " alias

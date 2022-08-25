@@ -32,3 +32,4 @@ alias fixBT='sudo rmmod btusb; sudo modprobe btusb'
 alias python=python3
 alias pw='pw | copy'
 alias npm='pnpm'
+alias lsss='lsss -R'

@@ -22,3 +22,9 @@ sshTunnel(){
 		ssh -NfR 9999:localhost:$1 simba-fs.dev
 	fi
 }
+
+notmux(){
+	touch .notmux && 
+	gnome-terminal & disown &&
+	rm .notmux
+}
