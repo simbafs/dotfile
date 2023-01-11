@@ -25,10 +25,11 @@ else
 	# zplug "plugins/virtualenv", from:oh-my-zsh
 
 	zplug 'zchee/zsh-completions'
+	# zplug 'zsh-users/zsh-completions'
 
 	# zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
 	
-	zplug 'bobthecow/git-flow-completion'
+	# zplug 'bobthecow/git-flow-completion'
 
 	# Install plugins if there are plugins that have not been installed
 	if ! zplug check --verbose; then
@@ -80,8 +81,8 @@ else
 	# up-line-or-history: Cycle to previous history line.
 
 	# Down arrow:
-	bindkey '\e[B' down-line-or-select
-	bindkey '\eOB' down-line-or-select
+	# bindkey '\e[B' down-line-or-select
+	# bindkey '\eOB' down-line-or-select
 	# down-line-or-select:  Open completion menu.
 	# down-line-or-history: Cycle to next history line.
 
@@ -91,7 +92,9 @@ else
 
 	export EDITOR=vim
 
-	source $HOME/.bash/*
+	for i in $(\ls $HOME/.bash);do
+		source $HOME/.bash/$i
+	done
 
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

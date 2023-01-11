@@ -117,3 +117,4 @@ if ! shopt -oq posix; then
 fi
 
 [[ -s "/home/simba/.gvm/scripts/gvm" ]] && source "/home/simba/.gvm/scripts/gvm"
+. "$HOME/.cargo/env"

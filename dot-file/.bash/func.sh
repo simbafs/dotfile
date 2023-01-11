@@ -24,7 +24,7 @@ sshTunnel(){
 }
 
 notmux(){
-	touch .notmux && 
+	touch ~/.notmux && 
 	gnome-terminal & disown &&
-	rm .notmux
+	rm ~/.notmux
 }

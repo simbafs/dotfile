@@ -1,6 +1,7 @@
 [user]
 	email = simba.fs@gmail.com
-	name = simba-fs
+	name = SimbaFs
+	signingkey = FB397B64177E7C696E4D707F2FAD69678674CF25
 [alias]
 	tree = log --graph --all --oneline --decorate --abbrev-commit
 [init]
@@ -9,3 +10,5 @@
 	gpgsign = true
 [core]
 	pager = git-split-diffs --color | less -RFX
+[cinnabar]
+	version-check = 1673269543
