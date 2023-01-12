@@ -10,6 +10,7 @@ else
 
 	zplug 'zsh-users/zsh-history-substring-search'
 	zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+	zplug 'catppuccin/zsh-syntax-highlighting'
 	# zplug 'MichaelAquilina/zsh-auto-notify'
 	# export AUTO_NOTIFY_IGNORE=("docker" "man" "vim", "vi", "sleep", "apt", "su")
 
