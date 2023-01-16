@@ -107,7 +107,6 @@ else
 	export PATH="$PNPM_HOME:$PATH"
 	# pnpm end
 
-	# python
 	export PATH=$HOME/.local/bin:$PATH
 
 	# deno
@@ -116,11 +115,8 @@ else
 
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
-	source /home/simba/.gvm/scripts/gvm
-	gvm use 18 > /dev/null
-	hugo completion zsh > "${fpath[1]}/_hugo"
 
-	export PATH=/home/simba/.local/bin:"$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+	export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 	# ipfs
 	eval "$(ipfs commands completion bash)"

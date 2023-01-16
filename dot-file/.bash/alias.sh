@@ -1,7 +1,8 @@
 alias rm='rm -r'
 alias cp='cp -r'
 alias ls='ls -hlF --color=auto'
-alias ls='lsd --date="+%Y/%m/%d %H:%M:%S" -l --size=short'
+# alias ls='lsd --date="+%Y/%m/%d %H:%M:%S" -l --size=short'
+# alias ls='lsd -l --size=short'
 alias pwd=dirs
 alias ..='cd ../'
 alias qemu-iso='sudo qemu-system-x86_64 -m 2048 -boot d -enable-kvm -net nic -net user -cdrom'

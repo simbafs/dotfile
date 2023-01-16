@@ -6,3 +6,4 @@
 .zshrc
 .config/nvim/
 .gitconfig
+.local/share/applications/firefox.desktop

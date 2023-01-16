@@ -28,7 +28,13 @@ require('packer').startup(function(use)
 
 	use { -- Autocompletion
 		'hrsh7th/nvim-cmp',
-		requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+		requires = { 
+			'hrsh7th/cmp-nvim-lsp',
+			'L3MON4D3/LuaSnip', 
+			'saadparwaiz1/cmp_luasnip', 
+			'hrsh7th/cmp-path',
+			-- 'onsails/lspkind.nvim'
+		},
 	}
 
 	use { -- Highlight, edit, and navigate code
@@ -52,7 +58,10 @@ require('packer').startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 	require('plugins.gitsigns')
 
-	use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 	require('plugins.lualine')
 
 	-- gcc from a line comment, gbc from a block comment
@@ -100,6 +109,10 @@ require('packer').startup(function(use)
 
 	use { 'echasnovski/mini.nvim', branch = 'stable' }
 	require('plugins.mini')
+
+	-- use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+	-- require('plugins.barbar')
+
 	-- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
 	-- local has_plugins, plugins = pcall(require, 'custom.plugins')
 	-- if has_plugins then
