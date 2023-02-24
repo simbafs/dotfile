@@ -8,3 +8,4 @@
 .zshrc
 .p10k.zsh
 .local/share/applications/firefox.desktop
+.prettierrc

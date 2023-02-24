@@ -50,6 +50,19 @@ else
 
 	zinit load djui/alias-tips
 
+	# The following lines were added by compinstall
+	zstyle ':completion:*' completer _complete _ignored _correct
+	zstyle ':completion:*' menu yes select
+	zstyle :compinstall filename '/home/simba/.zshrc'
+	# case sensitive
+	zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+	autoload -Uz compinit
+	compinit
+	# End of lines added by compinstall
+	
+	SAVEHIST=1000
+	export HISTFILE=~/.zsh_history
+
 	# others
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
