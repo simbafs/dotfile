@@ -11,15 +11,15 @@ vim.o.cindent = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.cursorline = true
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 vim.o.ignorecase = true
 vim.o.hlsearch = true
 -- vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.smartcase = true
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- Decrease update time
 vim.o.updatetime = 100
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"

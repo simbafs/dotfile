@@ -23,9 +23,9 @@ else
 
 	# Load a few important annexes, without Turbo
 	# (this is currently required for annexes)
-	zinit light zdharma-continuum/zinit-annex-as-monitor 
-	zinit light zdharma-continuum/zinit-annex-bin-gem-node 
-	zinit light zdharma-continuum/zinit-annex-patch-dl 
+	zinit light zdharma-continuum/zinit-annex-as-monitor
+	zinit light zdharma-continuum/zinit-annex-bin-gem-node
+	zinit light zdharma-continuum/zinit-annex-patch-dl
 	zinit light zdharma-continuum/zinit-annex-rust
 
 	### End of Zinit's installer chunk
@@ -35,9 +35,9 @@ else
 	zinit light zsh-users/zsh-history-substring-search
 	zinit light zdharma-continuum/fast-syntax-highlighting
 	zinit light hlissner/zsh-autopair
-	zinit ice depth=1; 
+	zinit ice depth=1;
 	zinit light romkatv/powerlevel10k
-	
+
 	zinit snippet OMZ::lib/completion.zsh
 	zinit snippet OMZ::lib/history.zsh
 	zinit snippet OMZ::lib/key-bindings.zsh

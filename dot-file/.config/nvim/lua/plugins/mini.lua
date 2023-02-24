@@ -1,5 +1,5 @@
-require('mini.surround').setup({})
-require('mini.pairs').setup({}) -- need more research
+require("mini.surround").setup({})
+-- require('mini.pairs').setup({}) -- need more research
 -- require('mini.sessions').setup({
 -- 	directory = '~/.local/share/nvim/sessions',
 -- })

@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  LuaSnip = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   catppuccin = {
     loaded = true,
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -94,75 +89,40 @@ _G.packer_plugins = {
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/ccc.nvim",
     url = "https://github.com/uga-rosa/ccc.nvim"
   },
-  ["cmp-emmet-vim"] = {
+  ["coc.nvim"] = {
     loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/cmp-emmet-vim",
-    url = "https://github.com/dcampos/cmp-emmet-vim"
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
   },
-  ["cmp-nvim-lsp"] = {
+  ["emmet-vim"] = {
     loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
   },
-  ["cmp-path"] = {
+  ["formatter.nvim"] = {
     loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com/hrsh7th/cmp-path"
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
   },
-  cmp_luasnip = {
+  ["friendly-snippets"] = {
     loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["fidget.nvim"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["leetcode.vim"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/leetcode.vim",
-    url = "https://github.com/ianding1/leetcode.vim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
-  },
-  ["mason.nvim"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
   ["mini.nvim"] = {
     loaded = true,
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/mini.nvim",
     url = "https://github.com/echasnovski/mini.nvim"
-  },
-  ["neodev.nvim"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/neodev.nvim",
-    url = "https://github.com/folke/neodev.nvim"
-  },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-remote-containers"] = {
     loaded = true,
@@ -191,11 +151,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/simba/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  nvimPlugin = {
-    loaded = true,
-    path = "/home/simba/.local/share/nvim/site/pack/packer/start/nvimPlugin",
-    url = "/home/simba/git/nvimPlugin"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -250,10 +205,25 @@ _G.packer_plugins = {
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
   },
+  ["vim-markdown"] = {
+    loaded = true,
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/vim-markdown",
+    url = "https://github.com/preservim/vim-markdown"
+  },
   ["vim-rhubarb"] = {
     loaded = true,
     path = "/home/simba/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/simba/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
