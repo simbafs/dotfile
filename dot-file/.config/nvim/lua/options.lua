@@ -21,5 +21,5 @@ vim.o.smartcase = true
 vim.o.completeopt = 'menuone,noselect'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 100
 vim.wo.signcolumn = 'yes'

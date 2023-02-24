@@ -1,0 +1,7 @@
+pane	0	0	1	:*	0	:/home/simba/work/webui/Q8webui/webui	1	nvim	:nvim src/components/Module/index.js
+pane	0	0	1	:*	1	:/home/simba/work/webui/Q8webui/webui/bin	0	./q8server	:./q8server
+pane	0	0	1	:*	2	:/home/simba/work/webui/Q8webui/webui	0	node	:node /home/simba/.local/share/pnpm/global/5/node_modules/pnpm/bin/pnpm.cjs run dev
+pane	0	1	0	:-	0	:/home/simba/Downloads	1	zsh	:
+window	0	0	:nvim	1	:*	d973,146x34,0,0[146x24,0,0,0,146x9,0,25{72x9,0,25,3,73x9,73,25,5}]	:
+window	0	1	:zsh	0	:-	bc7f,146x34,0,0,2	:
+state	0	

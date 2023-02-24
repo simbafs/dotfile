@@ -1,9 +1,10 @@
-.bash
+.bash/
 .bashrc
 .tmux.conf
+.tmux/
 .vimrc
-.vim/plugin.vim
-.zshrc
 .config/nvim/
 .gitconfig
+.zshrc
+.p10k.zsh
 .local/share/applications/firefox.desktop

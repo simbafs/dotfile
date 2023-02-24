@@ -1,8 +1,12 @@
-alias rm='rm -r'
+# alias rm='rm -r'
 alias cp='cp -r'
-alias ls='ls -hlF --color=auto'
-# alias ls='lsd --date="+%Y/%m/%d %H:%M:%S" -l --size=short'
-# alias ls='lsd -l --size=short'
+
+if which lsd > /dev/null ;then
+	alias ls='lsd --date="+%Y/%m/%d %H:%M:%S" -l --size=short'
+else 
+	alias ls='ls -hlF --color=auto'
+fi
+
 alias pwd=dirs
 alias ..='cd ../'
 alias qemu-iso='sudo qemu-system-x86_64 -m 2048 -boot d -enable-kvm -net nic -net user -cdrom'
@@ -34,3 +38,4 @@ alias npm='pnpm'
 alias less='less -R'
 alias vnstat='vnstat wlo1'
 alias gpg=gpg2
+alias md2pdf='pandoc -o out.pdf -V CJKmainfont="Noto Serif TC" --template eisvogel'

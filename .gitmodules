@@ -1,0 +1,3 @@
+[submodule "dot-file/.tmux/plugins/tmux-plODugin-sysstat"]
+	path = dot-file/.tmux/plugins/tmux-plODugin-sysstat
+	url = https://github.com/samoshkin/tmux-plugin-sysstat.git

@@ -1,97 +1,59 @@
 if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]];then
 	exec tmux
 else
-	source ~/.zplug/init.zsh
-
-	zplug "romkatv/powerlevel10k", as:theme, depth:1
-	zplug "zsh-users/zsh-autosuggestions"
-	bindkey "$terminfo[kcuu1]" history-substring-search-up
-	bindkey "$terminfo[kcud1]" history-substring-search-down
-
-	zplug 'zsh-users/zsh-history-substring-search'
-	zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-	zplug 'catppuccin/zsh-syntax-highlighting'
-	# zplug 'MichaelAquilina/zsh-auto-notify'
-	# export AUTO_NOTIFY_IGNORE=("docker" "man" "vim", "vi", "sleep", "apt", "su")
-
-	# zplug 'marlonrichert/zsh-autocomplete'
-	zplug 'hlissner/zsh-autopair'
-	# zplug 'b4b4r07/emoji-cli'
-	# EMOJI_CLI_KEYBIND=^e
-
-	# zplug 'reegnz/jq-zsh-plugin'
-	# alt + j
-
-	# zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
-	# zplug "plugins/virtualenv", from:oh-my-zsh
-
-	zplug 'zchee/zsh-completions'
-	# zplug 'zsh-users/zsh-completions'
-
-	# zplug "g-plane/zsh-yarn-autocompletions", hook-build:"./zplug.zsh", defer:2
-	
-	# zplug 'bobthecow/git-flow-completion'
-
-	# Install plugins if there are plugins that have not been installed
-	if ! zplug check --verbose; then
-		printf "Install? [y/N]: "
-		if read -q; then
-			echo; zplug install
-		fi
-	fi
-
 	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 	# Initialization code that may require console input (password prompts, [y/n]
 	# confirmations, etc.) must go above this block; everything else may go below.
 	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-		source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 	fi
 
-	# Then, source plugins and add commands to $PATH
-	zplug load
+	### Added by Zinit's installer
+	if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+		print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+		command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+		command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+			print -P "%F{33} %F{34}Installation successful.%f%b" || \
+			print -P "%F{160} The clone has failed.%f%b"
+	fi
 
-	deleteWord(){
-		local WORDCHARS=${WORDCHARS/\//}
-		zle backward-delete-word
-	}
-	zle -N deleteWord
-	bindkey '^W' deleteWord
+	source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+	autoload -Uz _zinit
+	(( ${+_comps} )) && _comps[zinit]=_zinit
 
+	# Load a few important annexes, without Turbo
+	# (this is currently required for annexes)
+	zinit light zdharma-continuum/zinit-annex-as-monitor 
+	zinit light zdharma-continuum/zinit-annex-bin-gem-node 
+	zinit light zdharma-continuum/zinit-annex-patch-dl 
+	zinit light zdharma-continuum/zinit-annex-rust
 
-	# The following lines were added by compinstall
+	### End of Zinit's installer chunk
 
-	zstyle ':completion:*' completer _complete _ignored _correct
-	zstyle ':completion:*' menu yes select
-	zstyle :compinstall filename '/home/simba/.zshrc'
-	# case sensitive
-	zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+	zinit light zsh-users/zsh-completions
+	zinit light zsh-users/zsh-autosuggestions
+	zinit light zsh-users/zsh-history-substring-search
+	zinit light zdharma-continuum/fast-syntax-highlighting
+	zinit light hlissner/zsh-autopair
+	zinit ice depth=1; 
+	zinit light romkatv/powerlevel10k
+	
+	zinit snippet OMZ::lib/completion.zsh
+	zinit snippet OMZ::lib/history.zsh
+	zinit snippet OMZ::lib/key-bindings.zsh
+	zinit snippet OMZ::lib/theme-and-appearance.zsh
 
-	autoload -Uz compinit
-	compinit
-	# End of lines added by compinstall
+	# for zsh-history-substring-search
+	bindkey '^[[A' history-substring-search-up
+	bindkey '^[[B' history-substring-search-down
+	bindkey ',' autosuggest-accept
 
-	SAVEHIST=1000
-	export HISTFILE=~/.zsh_history
-	# setopt share_history
+	zinit load djui/alias-tips
 
-	# zsh-autocomplete configure
-	# Up arrow:
-	# bindkey '\e[A' up-line-or-search
-	# bindkey '\eOA' up-line-or-search
-	# up-line-or-search:  Open history menu.
-	# up-line-or-history: Cycle to previous history line.
-
-	# Down arrow:
-	# bindkey '\e[B' down-line-or-select
-	# bindkey '\eOB' down-line-or-select
-	# down-line-or-select:  Open completion menu.
-	# down-line-or-history: Cycle to next history line.
-
-
-	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+	# others
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-	export EDITOR=vim
+	export EDITOR=nvim
 
 	for i in $(\ls $HOME/.bash);do
 		source $HOME/.bash/$i

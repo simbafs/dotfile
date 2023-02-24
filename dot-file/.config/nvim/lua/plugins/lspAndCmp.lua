@@ -126,7 +126,8 @@ cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
-		{ name = 'path' }
+		{ name = 'path' },
+		{ name = 'emmet_vim' }
 	},
 	-- I want this -> https://www.youtube.com/watch?v=JyDe4Zzesx0
 }

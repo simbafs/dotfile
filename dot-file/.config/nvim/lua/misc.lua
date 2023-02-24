@@ -9,4 +9,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*'
 })
 
-
+vim.api.nvim_set_hl(0, 'LineNr', { fg='#737480' } )
+vim.api.nvim_set_hl(0, 'Comment', { fg='#737480' } )

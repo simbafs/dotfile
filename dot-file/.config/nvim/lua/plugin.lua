@@ -28,14 +28,16 @@ require('packer').startup(function(use)
 
 	use { -- Autocompletion
 		'hrsh7th/nvim-cmp',
-		requires = { 
+		requires = {
 			'hrsh7th/cmp-nvim-lsp',
-			'L3MON4D3/LuaSnip', 
-			'saadparwaiz1/cmp_luasnip', 
+			'L3MON4D3/LuaSnip',
+			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-path',
+			-- 'dcampos/cmp-emmet-vim',
 			-- 'onsails/lspkind.nvim'
 		},
 	}
+	require('plugins.luasnip')
 
 	use { -- Highlight, edit, and navigate code
 		'nvim-treesitter/nvim-treesitter',
@@ -93,7 +95,7 @@ require('packer').startup(function(use)
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
 	}
-	require("nvim-tree").setup()
+	require('plugins.nvimTree')
 
 	use { 'junegunn/vim-easy-align' }
 	require('plugins.vimEasyAlign')
@@ -109,6 +111,63 @@ require('packer').startup(function(use)
 
 	use { 'echasnovski/mini.nvim', branch = 'stable' }
 	require('plugins.mini')
+
+	use { 'uga-rosa/ccc.nvim' }
+	require('ccc').setup()
+
+	-- use {
+	-- 	"rest-nvim/rest.nvim",
+	-- 	requires = { "nvim-lua/plenary.nvim" },
+	-- 	config = function()
+	-- 		require("rest-nvim").setup({
+	-- 			-- Open request results in a horizontal split
+	-- 			result_split_horizontal = false,
+	-- 			-- Keep the http file buffer above|left when split horizontal|vertical
+	-- 			result_split_in_place = false,
+	-- 			-- Skip SSL verification, useful for unknown certificates
+	-- 			skip_ssl_verification = false,
+	-- 			-- Encode URL before making request
+	-- 			encode_url = true,
+	-- 			-- Highlight request on run
+	-- 			highlight = {
+	-- 				enabled = true,
+	-- 				timeout = 150,
+	-- 			},
+	-- 			result = {
+	-- 				-- toggle showing URL, HTTP info, headers at top the of result window
+	-- 				show_url = true,
+	-- 				show_http_info = true,
+	-- 				show_headers = true,
+	-- 				-- executables or functions for formatting response body [optional]
+	-- 				-- set them to false if you want to disable them
+	-- 				formatters = {
+	-- 					json = "jq",
+	-- 					html = function(body)
+	-- 						return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+	-- 					end
+	-- 				},
+	-- 			},
+	-- 			-- Jump to request line on run
+	-- 			jump_to_request = false,
+	-- 			env_file = '.env',
+	-- 			custom_dynamic_variables = {},
+	-- 			yank_dry_run = true,
+	-- 		})
+	-- 	end
+	-- }
+
+	use { 'ianding1/leetcode.vim' }
+	require('plugins.leetcode')
+
+	use { 'jamestthompson3/nvim-remote-containers' }
+
+	use { 'preservim/vim-markdown' }
+	require('plugins.markdown')
+
+	-- use { 'atusy/tsnode-marker.nvim' }
+	-- require('plugins.tsnodeMarker')
+
+	-- use { '~/git/nvimPlugin' }
 
 	-- use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
 	-- require('plugins.barbar')

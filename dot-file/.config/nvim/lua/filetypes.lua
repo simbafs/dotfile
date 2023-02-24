@@ -20,3 +20,6 @@ autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, '/etc/nginx/*,/usr/local/nginx/co
 
 -- nas
 autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, '*.nas', function() vim.o.filetype = 'nasm' end)
+
+-- arista
+autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, '*.desc', function() vim.o.syntax = 'json' end)
