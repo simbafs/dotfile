@@ -23,7 +23,7 @@ alias arp='arp -a'
 alias screenoff='xset dpms force off'
 alias screenRotate='xrandr --output eDP --rotate'
 alias grep='grep --color=always'
-alias grepFind='grep --exclude-dir=node_modules -nr . -e'
+alias grepFind='grep --exclude-dir=node_modules --exclude-dir=.next -nr . -e'
 alias arp='arp -nve'
 alias vi=nvim
 alias vim=nvim
@@ -38,4 +38,4 @@ alias npm='pnpm'
 alias less='less -R'
 alias vnstat='vnstat wlo1'
 alias gpg=gpg2
-alias md2pdf='pandoc -o out.pdf -V CJKmainfont="Noto Serif TC" --template eisvogel'
+alias backup="rsync --archive --rsh ssh --delete --ignore-existing --info=progress2 --exclude='cache/' --exclude='Cache/' --exclude='.cache/' /home/simba/ simbafs@nas.simbafs.cc::home/nbBackup"

@@ -1,11 +1,10 @@
 .bash/
 .bashrc
 .tmux.conf
-.tmux/
 .vimrc
-.config/nvim/
+.config/nvim/lua/user/init.lua
 .gitconfig
 .zshrc
 .p10k.zsh
 .local/share/applications/firefox.desktop
-.prettierrc
+.prettierrc.cjs

@@ -59,7 +59,12 @@ else
 	autoload -Uz compinit
 	compinit
 	# End of lines added by compinstall
-	
+
+	# completions
+	fpath=(~/.zsh $fpath)
+	autoload -Uz compinit
+	compinit -u
+
 	SAVEHIST=1000
 	export HISTFILE=~/.zsh_history
 
@@ -95,4 +100,7 @@ else
 
 	# ipfs
 	eval "$(ipfs commands completion bash)"
+
+	export RISCV=/opt/riscv
+	export PATH=$PATH:$RISCV/bin
 fi

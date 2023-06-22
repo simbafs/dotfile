@@ -1,3 +1,0 @@
-pane	0	0	1	:*	0	:/home/simba/git/golang/ssh	1	nvim	:nvim tcpip.go +155
-window	0	0	:nvim	1	:*	c5fd,122x37,0,0,0	:
-state	0	
