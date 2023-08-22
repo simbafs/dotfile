@@ -14,8 +14,8 @@
 # }
 #
 
-sshTunnel(){
-	if [[ $1 == 'kill' ]];then
+sshTunnel() {
+	if [[ $1 == 'kill' ]]; then
 		kill $(ps -ax | grep '[s]sh -NfR' | awk '{print $1}')
 	else
 		echo PORT $1
@@ -23,8 +23,16 @@ sshTunnel(){
 	fi
 }
 
-notmux(){
-	touch ~/.notmux && 
-	gnome-terminal & disown &&
-	rm ~/.notmux
+notmux() {
+	touch ~/.notmux &&
+		gnome-terminal &
+	disown &&
+		rm ~/.notmux
+}
+
+detch() {
+	(
+		"$@" &>/dev/null &
+		disown
+	)
 }
