@@ -1,9 +1,10 @@
+#!/bin/bash
 # alias rm='rm -r'
 alias cp='cp -r'
 
-if which lsd > /dev/null ;then
+if which lsd >/dev/null; then
 	alias ls='lsd --date="+%Y/%m/%d %H:%M:%S" -l --size=short'
-else 
+else
 	alias ls='ls -hlF --color=auto'
 fi
 
@@ -35,6 +36,7 @@ alias fixBT='sudo rmmod btusb; sudo modprobe btusb'
 alias python=python3
 alias pw='pw | copy'
 alias npm='pnpm'
+alias npx='npm dlx'
 alias less='less -R'
 alias vnstat='vnstat wlo1'
 alias gpg=gpg2

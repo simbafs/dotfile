@@ -24,3 +24,5 @@
 	followTags = true
 [merge]
 	ff = false
+[gpg]
+	program = gpg2

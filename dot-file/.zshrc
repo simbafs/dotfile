@@ -73,6 +73,16 @@ else
 
 	export EDITOR=nvim
 
+	# gpg-agent ssh
+	unset SSH_AGENT_PID
+	if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+		export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+	fi
+
+	export GPG_TTY=$(tty)
+	gpg-connect-agent updatestartuptty /bye >/dev/null
+	echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 > /dev/null
+
 	for i in $(\ls $HOME/.bash);do
 		source $HOME/.bash/$i
 	done
@@ -80,12 +90,11 @@ else
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-	nvm use 16 > /dev/null
+	nvm use 18 > /dev/null
 
 	# pnpm
 	export PNPM_HOME="/home/simba/.local/share/pnpm"
 	export PATH="$PNPM_HOME:$PATH"
-	# pnpm end
 
 	export PATH=$HOME/.local/bin:$PATH
 
@@ -96,11 +105,23 @@ else
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
-	export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+	# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 	# ipfs
 	eval "$(ipfs commands completion bash)"
 
-	export RISCV=/opt/riscv
-	export PATH=$PATH:$RISCV/bin
+	# export RISCV=/opt/riscv
+	# export PATH=$PATH:$RISCV/bin
+
+	# bun completions
+	[ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
+
+	# bun
+	export BUN_INSTALL="$HOME/.bun"
+	export PATH="$BUN_INSTALL/bin:$PATH"
+
+	# flutter
+	export PATH=/usr/local/flutter/bin:$PATH
+
+	export ANDROID_HOME=$HOME/Android/Sdk
 fi
