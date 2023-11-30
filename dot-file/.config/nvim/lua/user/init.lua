@@ -1,3 +1,5 @@
+local utils = require "astronvim.utils"
+
 return {
   colorscheme = "catppuccin",
 
@@ -56,12 +58,24 @@ return {
   },
 
   lsp = {
+    formatting = {
+      format_on_save = false, -- enable or disable automatic formatting on save
+    },
     config = {
       clangd = {
         capabilities = {
           offsetEncoding = "utf-8",
         },
       },
+      typst_lsp = function(opts)
+        return {
+          -- settings = {
+            exportPdf = "onType", -- Choose onType, onSave or never.
+            -- serverPath = "" -- Normally, there is no need to uncomment it.
+          -- },
+          root_dir = require("lspconfig.util").root_pattern("README.md", ".git", "main.typ"),
+        }
+      end,
     },
   },
 
@@ -195,6 +209,18 @@ return {
         return opts
       end,
     },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "typst_lsp") end,
+    },
+    -- new plugins
+    -- {
+    --   "https://codeberg.org/esensar/nvim-dev-container",
+    --   dependencies = "nvim-treesitter/nvim-treesitter",
+    --   lazy = false,
+    --   config = function() require("devcontainer").setup {} end,
+    -- },
+    { "kaarmu/typst.vim", ft = "typst" },
   },
 
   polish = function()

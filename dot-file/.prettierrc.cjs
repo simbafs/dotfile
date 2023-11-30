@@ -8,7 +8,7 @@ module.exports = {
 	// 		},
 	// 	},
 	// ],
-	printWidth: 80,
+	printWidth: 120,
 	tabWidth: 4,
 	useTabs: true,
 	semi: false,

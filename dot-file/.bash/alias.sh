@@ -41,3 +41,5 @@ alias less='less -R'
 alias vnstat='vnstat wlo1'
 alias gpg=gpg2
 alias backup="rsync --archive --rsh ssh --delete --ignore-existing --info=progress2 --exclude='cache/' --exclude='Cache/' --exclude='.cache/' /home/simba/ simbafs@nas.simbafs.cc::home/nbBackup"
+alias LINE='google-chrome --app=chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html'
+alias nasfs='sshfs nas.simbafs.cc: nas/ -o uid=1000 -o gid=1000'
