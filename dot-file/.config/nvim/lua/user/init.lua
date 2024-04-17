@@ -14,7 +14,7 @@ return {
     opt = {
       tabstop = 4,
       shiftwidth = 4,
-      relativenumber = false,
+      -- relativenumber = false,
       guicursor = vim.opt.guicursor + "i:block",
       guifont = "BitstromWera Nerd Font Mono",
     },
@@ -70,8 +70,8 @@ return {
       typst_lsp = function(opts)
         return {
           -- settings = {
-            exportPdf = "onType", -- Choose onType, onSave or never.
-            -- serverPath = "" -- Normally, there is no need to uncomment it.
+          exportPdf = "onType", -- Choose onType, onSave or never.
+          -- serverPath = "" -- Normally, there is no need to uncomment it.
           -- },
           root_dir = require("lspconfig.util").root_pattern("README.md", ".git", "main.typ"),
         }
@@ -82,17 +82,13 @@ return {
   plugins = {
     {
       "AstroNvim/astrocommunity",
-      {
-        "catppuccin/nvim",
-        config = function()
-          require("catppuccin").setup {
-            flavour = "macchiato",
-            transparent_background = true,
-          }
-        end,
-      },
+      -- dev = true,
+      -- { dir = "/home/simba/git/astrocommunity" },
+      --
+      { import = "astrocommunity.pack.typst" },
+
       { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
-      -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+      { import = "astrocommunity.completion.copilot-lua-cmp" },
       { import = "astrocommunity.pack.astro" },
       { import = "astrocommunity.pack.bash" },
       { import = "astrocommunity.pack.docker" },
@@ -110,6 +106,15 @@ return {
       { import = "astrocommunity.pack.dart" },
       { import = "astrocommunity.scrolling.nvim-scrollbar" },
       { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
+    },
+    {
+      "catppuccin/nvim",
+      config = function()
+        require("catppuccin").setup {
+          flavour = "macchiato",
+          transparent_background = true,
+        }
+      end,
     },
     {
       "rcarriga/nvim-notify",
@@ -209,18 +214,21 @@ return {
         return opts
       end,
     },
-    {
-      "williamboman/mason-lspconfig.nvim",
-      opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "typst_lsp") end,
-    },
+    { "dmmulroy/ts-error-translator.nvim", ft = { "typescript", "typescriptreact" }, opts = {} },
+    { "dmmulroy/tsc.nvim", opts = {}, cmd = "TSC" },
     -- new plugins
+    -- {
+    --   "williamboman/mason-lspconfig.nvim",
+    --   opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "typst_lsp") end,
+    -- },
     -- {
     --   "https://codeberg.org/esensar/nvim-dev-container",
     --   dependencies = "nvim-treesitter/nvim-treesitter",
     --   lazy = false,
     --   config = function() require("devcontainer").setup {} end,
     -- },
-    { "kaarmu/typst.vim", ft = "typst" },
+    -- { "kaarmu/typst.vim", ft = "typst" },
+    -- { "altermo/nxwm", branch = "x11", cmd = "Browser" },
   },
 
   polish = function()
@@ -243,5 +251,11 @@ return {
     end)
     os.execute "mkdir -p /tmp/firenvim"
     -- mv ~/.local/share/nvim/lazy/nvim-treesitter/queries/dart/indents.scm ~/.local/share/nvim/lazy/nvim-treesitter/queries/dart/indents.scm.disable
+
+    -- firenvim
+    if vim.g.started_by_firenvim == true then
+      vim.cmd "set bg=light"
+      vim.cmd "set ft=python"
+    end
   end,
 }

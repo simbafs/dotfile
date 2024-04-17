@@ -124,4 +124,8 @@ else
 	export PATH=/usr/local/flutter/bin:$PATH
 
 	export ANDROID_HOME=$HOME/Android/Sdk
+
+	# riskv
+	export RISCV=/opt/riscv
+	export PATH=$PATH:$RISCV/bin
 fi
