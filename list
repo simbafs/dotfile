@@ -2,7 +2,7 @@
 .bashrc
 .tmux.conf
 .vimrc
-.config/nvim/lua/user/init.lua
+.config/nvim/
 .gitconfig
 .zshrc
 .p10k.zsh
