@@ -43,9 +43,3 @@ fixGPG() {
 	export GPG_TTY=$(tty)
 	echo UPDATESTARTUPTTY | gpg-connect-agent
 }
-
-fixTOuchpad() {
-	# https://askubuntu.com/a/978159
-	sudo rmmod hid_multitouch
-	sudo modprobe hid_multitouch
-}

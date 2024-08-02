@@ -44,3 +44,4 @@ alias backup="rsync --archive --rsh ssh --delete --ignore-existing --info=progre
 alias LINE='google-chrome --app=chrome-extension://ophjlpahpchlmihnnnihgmmeilfjmjjc/index.html'
 alias nasfs='sshfs nas.simbafs.cc: nas/ -o uid=1000 -o gid=1000'
 alias opt="curl -X POST -s  -H 'Cookie: OAKS_SESS1=kj3ffpki4ic5sa2drj1usv0pt6' 'https://iservice.nchc.org.tw/nchc_service/nchc_service_member_action.php?action=get_motp_count' | jq '.code' --raw-output"
+alias fixAudio='echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save'

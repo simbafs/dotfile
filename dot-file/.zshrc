@@ -46,7 +46,7 @@ else
 	# for zsh-history-substring-search
 	bindkey '^[[A' history-substring-search-up
 	bindkey '^[[B' history-substring-search-down
-	bindkey ',' autosuggest-accept
+	# bindkey ',' autosuggest-accept
 
 	zinit load djui/alias-tips
 
@@ -90,7 +90,7 @@ else
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-	nvm use 18 > /dev/null
+	nvm use 22 > /dev/null
 
 	# pnpm
 	export PNPM_HOME="/home/simba/.local/share/pnpm"
@@ -99,33 +99,35 @@ else
 	export PATH=$HOME/.local/bin:$PATH
 
 	# deno
-	export DENO_INSTALL="/home/simba/.deno"
-	export PATH="$DENO_INSTALL/bin:$PATH"
+	# export DENO_INSTALL="/home/simba/.deno"
+	# export PATH="$DENO_INSTALL/bin:$PATH"
 
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
 	# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+	eval "$(devpod completion zsh)"
+
 	# ipfs
-	eval "$(ipfs commands completion bash)"
+	# eval "$(ipfs commands completion bash)"
 
 	# export RISCV=/opt/riscv
 	# export PATH=$PATH:$RISCV/bin
 
 	# bun completions
-	[ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
+	# [ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
 
 	# bun
-	export BUN_INSTALL="$HOME/.bun"
-	export PATH="$BUN_INSTALL/bin:$PATH"
+	# export BUN_INSTALL="$HOME/.bun"
+	# export PATH="$BUN_INSTALL/bin:$PATH"
 
 	# flutter
-	export PATH=/usr/local/flutter/bin:$PATH
+	# export PATH=/usr/local/flutter/bin:$PATH
 
-	export ANDROID_HOME=$HOME/Android/Sdk
+	# export ANDROID_HOME=$HOME/Android/Sdk
 
 	# riskv
-	export RISCV=/opt/riscv
-	export PATH=$PATH:$RISCV/bin
+	# export RISCV=/opt/riscv
+	# export PATH=$PATH:$RISCV/bin
 fi

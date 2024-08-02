@@ -25,6 +25,7 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.dart" },
+  { import = "astrocommunity.pack.templ" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
 }
