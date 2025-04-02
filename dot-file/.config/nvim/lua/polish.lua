@@ -18,6 +18,7 @@ vim.cmd "command! W w"
 vim.cmd "command! Q q"
 vim.cmd "command! Wq wq"
 vim.cmd "command! WQ wq"
+-- vim.o.background = 'light'
 
 -- modified from https://github.com/RRethy/dotfiles/blob/195d7c9bb7be0198e522d05fd528c9fb48121fba/nvim/init.lua#L546
 local function autocmd(event, pattern, callback)
@@ -40,4 +41,8 @@ if vim.g.started_by_firenvim == true then
   vim.cmd "set ft=python"
 end
 
+autocmd("FileType", { "c" }, function() vim.o.shiftwidth = 2 end)
+
 -- vim.cmd "set guicursor=n-v-c-i:block"
+
+-- vim.opt.colorcolumn = "80"

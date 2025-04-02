@@ -30,7 +30,6 @@ require("lazy").setup({
   -- { "dmmulroy/tsc.nvim", opts = {}, cmd = "TSC" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
-  -- install = { colorscheme = { "catppuccin", "astrodark", "habamax" } },
   install = { colorscheme = { "catppuccin" } },
   ui = { backdrop = 100 },
   performance = {
@@ -46,3 +45,5 @@ require("lazy").setup({
     },
   },
 } --[[@as LazyConfig]])
+
+vim.lsp.inlay_hint.enable()

@@ -4,6 +4,7 @@
 	signingkey = FB397B64177E7C696E4D707F2FAD69678674CF25
 [alias]
 	tree = log --graph --all --oneline --decorate --abbrev-commit
+	stat = show --stat --oneline 
 [init]
 	defaultBranch = main
 [commit]
@@ -23,6 +24,6 @@
 [push]
 	followTags = true
 [merge]
-	ff = false
+	ff = true
 [gpg]
 	program = gpg2

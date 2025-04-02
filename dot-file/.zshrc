@@ -109,14 +109,18 @@ else
 
 	eval "$(devpod completion zsh)"
 
+	eval "$(hugo completion zsh)"
+
+	eval "$(tailscale completion zsh)"
+
+	source $HOME/.cargo/env
+
 	# ipfs
 	# eval "$(ipfs commands completion bash)"
 
 	# export RISCV=/opt/riscv
 	# export PATH=$PATH:$RISCV/bin
 
-	# bun completions
-	# [ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
 
 	# bun
 	# export BUN_INSTALL="$HOME/.bun"
@@ -125,9 +129,13 @@ else
 	# flutter
 	# export PATH=/usr/local/flutter/bin:$PATH
 
-	# export ANDROID_HOME=$HOME/Android/Sdk
+	export ANDROID_HOME=$HOME/Android/Sdk
+	export NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12433566
 
-	# riskv
-	# export RISCV=/opt/riscv
-	# export PATH=$PATH:$RISCV/bin
+	# bun completions
+	[ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
+	# bun
+	export BUN_INSTALL="$HOME/.bun"
+	export PATH="$BUN_INSTALL/bin:$PATH"
 fi
+
