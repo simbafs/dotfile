@@ -11,6 +11,7 @@ return {
         -- guicursor = "n-v-i-c:block-Cursor",
 
         relativenumber = false,
+        wrap = true,
       },
       g = {
         markdown_fenced_languages = {

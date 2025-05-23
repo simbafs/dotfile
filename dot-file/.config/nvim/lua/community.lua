@@ -28,9 +28,11 @@ return {
   { import = "astrocommunity.pack.templ" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.mdx" },
+  { import = "astrocommunity.pack.xml" },
+  { import = "astrocommunity.pack.mdx" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
-  { import = "astrocommunity.media.vim-wakatime" },
-  { import = 'astrocommunity.completion.avante-nvim' }
+  { import = "astrocommunity.completion.avante-nvim" },
+  -- { import = "astrocommunity.media.image-nvim" },
 }

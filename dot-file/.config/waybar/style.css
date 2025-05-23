@@ -1,0 +1,137 @@
+/* modified from https://github.com/catppuccin/waybar */
+@import './macchiato.css';
+
+* {
+	font-family: RecMonoLinear Nerd Font;
+	font-size: 17px;
+	min-height: 0;
+}
+
+#waybar {
+	background: transparent;
+	color: @text;
+	margin: 5px 5px;
+}
+
+/* common */
+#workspace,
+#cpu,
+#memory,
+#temperature,
+#custom-music,
+#pulseaudio,
+#backlight,
+#battery,
+#power-profiles-daemon,
+#network,
+#clock,
+#bluetooth,
+#tray {
+	background-color: @surface0;
+	padding: 0.2rem 0.5rem;
+	margin: 5px 0;
+}
+
+/* left */
+#workspaces {
+	border-radius: 1rem;
+	margin: 5px;
+	background-color: @surface0;
+	margin-left: 0.5rem;
+}
+
+#workspaces button {
+	color: @lavender;
+	border-radius: 1rem;
+	padding: 0.4rem;
+}
+
+#workspaces button.active {
+	color: @sky;
+	border-radius: 1rem;
+}
+
+#workspaces button:hover {
+	color: @sapphire;
+	border-radius: 1rem;
+}
+
+#cpu {
+	color: @rosewater;
+	margin-left: 0.5rem;
+	border-radius: 1rem 0rem 0rem 1rem;
+	padding-left: 1rem;
+}
+
+#memory {
+	color: @pink;
+}
+
+#temperature {
+	color: @red;
+	border-radius: 0rem 1rem 1rem 0rem;
+	padding-right: 1rem;
+}
+
+/* middle */
+#custom-music {
+	color: @mauve;
+	border-radius: 1rem;
+	margin-left: 0.5rem;
+	padding-top: 0rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+}
+
+/* right */
+#pulseaudio {
+	color: @rosewater;
+	border-radius: 1rem 0px 0px 1rem;
+	padding-left: 1rem;
+}
+
+#backlight {
+	color: @flamingo;
+}
+
+#battery {
+	color: @pink;
+}
+
+#power-profiles-daemon {
+	color: @red;
+}
+
+#battery {
+	border-radius: 0;
+	color: @maroon;
+}
+
+#network {
+	color: @peach;
+	border-radius: 0rem 1rem 1rem 0rem;
+	padding-right: 2rem;
+}
+
+#clock {
+	color: @green;
+	border-radius: 1rem;
+	margin-left: 0.5rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+}
+
+#bluetooth {
+	color: @teal;
+	border-radius: 1rem 0rem 0rem 1rem;
+	padding-left: 1rem;
+	margin-left: 0.5rem;
+}
+
+#tray {
+	background-color: @surface0;
+	color: @sky; /* this attribute does not work */
+	margin-right: 0.5rem;
+	border-radius: 0rem 1rem 1rem 0rem;
+	padding-right: 1rem;
+}

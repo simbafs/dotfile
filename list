@@ -8,3 +8,5 @@
 .p10k.zsh
 .local/share/applications/firefox.desktop
 .prettierrc.cjs
+.config/hypr
+.config/waybar

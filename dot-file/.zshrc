@@ -83,20 +83,13 @@ else
 	gpg-connect-agent updatestartuptty /bye >/dev/null
 	echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 > /dev/null
 
-	for i in $(\ls $HOME/.bash);do
-		source $HOME/.bash/$i
-	done
+	source $HOME/.alias.sh
 
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-	nvm use 22 > /dev/null
-
-	# pnpm
-	export PNPM_HOME="/home/simba/.local/share/pnpm"
-	export PATH="$PNPM_HOME:$PATH"
-
-	export PATH=$HOME/.local/bin:$PATH
+	export PNPM_HOME="/home/simba-arch/.local/share/pnpm"
+	case ":$PATH:" in
+  	*":$PNPM_HOME:"*) ;;
+  	*) export PATH="$PNPM_HOME:$PATH" ;;
+	esac
 
 	# deno
 	# export DENO_INSTALL="/home/simba/.deno"
@@ -105,22 +98,24 @@ else
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
+	source "$HOME/.cargo/env"
+
+
 	# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-	eval "$(devpod completion zsh)"
+	# eval "$(devpod completion zsh)"
 
-	eval "$(hugo completion zsh)"
+	# eval "$(hugo completion zsh)"
 
-	eval "$(tailscale completion zsh)"
+	# eval "$(tailscale completion zsh)"
 
-	source $HOME/.cargo/env
+	# source $HOME/.cargo/env
 
 	# ipfs
 	# eval "$(ipfs commands completion bash)"
 
 	# export RISCV=/opt/riscv
 	# export PATH=$PATH:$RISCV/bin
-
 
 	# bun
 	# export BUN_INSTALL="$HOME/.bun"
@@ -129,13 +124,12 @@ else
 	# flutter
 	# export PATH=/usr/local/flutter/bin:$PATH
 
-	export ANDROID_HOME=$HOME/Android/Sdk
-	export NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12433566
+	# export ANDROID_HOME=$HOME/Android/Sdk
+	# export NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12433566
 
 	# bun completions
-	[ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
-	# bun
-	export BUN_INSTALL="$HOME/.bun"
-	export PATH="$BUN_INSTALL/bin:$PATH"
+	# [ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
+	# # bun
+	# export BUN_INSTALL="$HOME/.bun"
+	# export PATH="$BUN_INSTALL/bin:$PATH"
 fi
-

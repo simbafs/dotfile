@@ -46,4 +46,4 @@ require("lazy").setup({
   },
 } --[[@as LazyConfig]])
 
-vim.lsp.inlay_hint.enable()
+-- vim.lsp.inlay_hint.enable()
