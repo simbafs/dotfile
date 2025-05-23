@@ -79,10 +79,6 @@ else
 		export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	fi
 
-	export GPG_TTY=$(tty)
-	gpg-connect-agent updatestartuptty /bye >/dev/null
-	echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 > /dev/null
-
 	source $HOME/.alias.sh
 
 	export PNPM_HOME="/home/simba-arch/.local/share/pnpm"
@@ -132,4 +128,10 @@ else
 	# # bun
 	# export BUN_INSTALL="$HOME/.bun"
 	# export PATH="$BUN_INSTALL/bin:$PATH"
+
+	# fix GPG
+	export GPG_TTY=$(tty)
+	gpg-connect-agent updatestartuptty /bye >/dev/null
+	echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 > /dev/null
+
 fi
