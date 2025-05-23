@@ -10,3 +10,4 @@
 .prettierrc.cjs
 .config/hypr
 .config/waybar
+.config/dunst
