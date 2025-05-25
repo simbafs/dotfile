@@ -68,7 +68,20 @@
 }
 
 #temperature {
-	color: @red;
+	color: @maroon;
+	border-radius: 0rem 1rem 1rem 0rem;
+	padding-right: 1rem;
+}
+
+#battery {
+	color: @peach;
+	margin-left: 0.5rem;
+	border-radius: 1rem 0rem 0rem 1rem;
+	padding-left: 1rem;
+}
+
+#power-profiles-daemon {
+	color: @yellow;
 	border-radius: 0rem 1rem 1rem 0rem;
 	padding-right: 1rem;
 }
@@ -91,41 +104,28 @@
 }
 
 #backlight {
-	color: @flamingo;
-}
-
-#battery {
 	color: @pink;
-}
-
-#power-profiles-daemon {
-	color: @red;
-}
-
-#battery {
-	border-radius: 0;
-	color: @maroon;
-}
-
-#network {
-	color: @peach;
 	border-radius: 0rem 1rem 1rem 0rem;
-	padding-right: 2rem;
+	padding-right: 1rem;
 }
 
 #clock {
-	color: @green;
+	color: @maroon;
 	border-radius: 1rem;
 	margin-left: 0.5rem;
 	padding-right: 1rem;
 	padding-left: 1rem;
 }
 
-#bluetooth {
-	color: @teal;
+#network {
+	color: @peach;
 	border-radius: 1rem 0rem 0rem 1rem;
-	padding-left: 1rem;
+	padding: 0rem 1rem;
 	margin-left: 0.5rem;
+}
+
+#bluetooth {
+	color: @yellow;
 }
 
 #tray {
