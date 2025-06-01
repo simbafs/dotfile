@@ -5,7 +5,7 @@
 	"position": "top", // Waybar position (top|bottom|left|right)
 	"modules-left": ["hyprland/workspaces", "cpu", "memory", "temperature", "battery", "power-profiles-daemon"],
 	"modules-center": ["custom/music"],
-	"modules-right": ["pulseaudio", "backlight", "clock", "network", "bluetooth", "tray"],
+	"modules-right": ["pulseaudio#out", "pulseaudio#in", "backlight", "clock", "network", "bluetooth", "tray"],
 	"tray": {
 		"icon-size": 21,
 		"spacing": 5,
@@ -43,14 +43,27 @@
 		"format-plugged": " {capacity}%",
 		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 	},
-	"pulseaudio": {
+	"pulseaudio#out": {
 		// "scroll-step": 1, // %, can be a float
 		"format": "{icon} {volume}%",
 		"format-muted": "",
 		"format-icons": {
 			"default": ["", "", " "],
 		},
-		"on-click": "pavucontrol",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol -t 3",
+		"on-click-middle": "pavucontrol -t 1",
+		"scroll-step": 5,
+	},
+	"pulseaudio#in": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
+		"on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+		"on-scroll-up": "$HOME/.local/bin/mic_volume_increase.sh",
+		"on-scroll-down": "$HOME/.local/bin/mic_volume_decrease.sh",
+		"on-click-right": "pavucontrol -t 4",
+		"on-click-middle": "pavucontrol -t 1",
 	},
 	"network": {
 		"interval": 1,

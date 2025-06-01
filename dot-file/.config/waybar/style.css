@@ -36,8 +36,8 @@
 #workspaces {
 	border-radius: 1rem;
 	margin: 5px;
+	margin-right: 0rem;
 	background-color: @surface0;
-	margin-left: 0.5rem;
 }
 
 #workspaces button {
@@ -97,10 +97,15 @@
 }
 
 /* right */
-#pulseaudio {
+#pulseaudio.out {
 	color: @rosewater;
 	border-radius: 1rem 0px 0px 1rem;
 	padding-left: 1rem;
+}
+
+#pulseaudio.in {
+	color: @rosewater;
+	border-radius: 0rem;
 }
 
 #backlight {

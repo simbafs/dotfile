@@ -30,6 +30,7 @@ return {
   { import = "astrocommunity.pack.mdx" },
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.mdx" },
+  { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
