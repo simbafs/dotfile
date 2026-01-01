@@ -24,6 +24,7 @@
 		"format-alt": " {:%Y/%m/%d}",
 		"format": " {:%H:%M}",
 		"interval": 60,
+		"tooltip": true,
 	},
 	"backlight": {
 		"device": "intel_backlight",
@@ -57,7 +58,7 @@
 	},
 	"pulseaudio#in": {
 		"format": "{format_source}",
-		"format-source": " {volume}%",
+		"format-source": "",
 		"format-source-muted": "",
 		"on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
 		"on-scroll-up": "$HOME/.local/bin/mic_volume_increase.sh",
