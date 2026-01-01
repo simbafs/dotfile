@@ -1,23 +1,13 @@
 if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]];then
 	exec tmux
 else
-	# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-	# Initialization code that may require console input (password prompts, [y/n]
-	# confirmations, etc.) must go above this block; everything else may go below.
-	if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-	  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-	fi
+	eval "$(oh-my-posh init zsh --config "$HOME"/.config/omp/bash.omp.json)"
 
-	### Added by Zinit's installer
-	if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-		print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-		command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-		command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-			print -P "%F{33} %F{34}Installation successful.%f%b" || \
-			print -P "%F{160} The clone has failed.%f%b"
-	fi
+	ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+	[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname "$ZINIT_HOME")"
+	[ ! -d "$ZINIT_HOME"/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	source "${ZINIT_HOME}/zinit.zsh"
 
-	source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 	autoload -Uz _zinit
 	(( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -36,7 +26,7 @@ else
 	zinit light zdharma-continuum/fast-syntax-highlighting
 	zinit light hlissner/zsh-autopair
 	zinit ice depth=1;
-	zinit light romkatv/powerlevel10k
+	# zinit light romkatv/powerlevel10k
 
 	zinit snippet OMZ::lib/completion.zsh
 	zinit snippet OMZ::lib/history.zsh
@@ -69,7 +59,7 @@ else
 	export HISTFILE=~/.zsh_history
 
 	# others
-	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+	# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 	export EDITOR=nvim
 
@@ -79,7 +69,13 @@ else
 		export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	fi
 
+	# Set GPG TTY for pinentry
+	# export GPG_TTY=$(tty)
+	# gpg-connect-agent updatestartuptty /bye &>/dev/null
+
 	source $HOME/.alias.sh
+
+	PATH=$HOME/.local/bin:$PATH
 
 	export PNPM_HOME="/home/simba-arch/.local/share/pnpm"
 	case ":$PATH:" in
@@ -129,9 +125,10 @@ else
 	# export BUN_INSTALL="$HOME/.bun"
 	# export PATH="$BUN_INSTALL/bin:$PATH"
 
-	# fix GPG
-	export GPG_TTY=$(tty)
-	gpg-connect-agent updatestartuptty /bye >/dev/null
-	echo UPDATESTARTUPTTY | gpg-connect-agent 2>&1 > /dev/null
+	eval $(cs completion zsh)
 
+	export LANG=zh_TW.UTF-8
+	export LC_ALL=zh_TW.UTF-8
+
+	PATH=$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH
 fi

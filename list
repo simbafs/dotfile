@@ -3,9 +3,9 @@
 .tmux.conf
 .vimrc
 .config/nvim/
+.config/omp
 .gitconfig
 .zshrc
-.p10k.zsh
 .local/share/applications/firefox.desktop
 .prettierrc.cjs
 .config/hypr
