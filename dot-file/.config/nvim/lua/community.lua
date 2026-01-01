@@ -7,8 +7,11 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  -- "simbafs/astrocommunity",
+  -- branch = "simbafs/typst",
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.avante-nvim" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
@@ -31,9 +34,14 @@ return {
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.mdx" },
   { import = "astrocommunity.pack.zig" },
+  { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.svelte" },
+  { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
-  { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.media.image-nvim" },
+  -- { import = "astrocommunity/editing-support/multicursors-nvim" },
+  { import = "astrocommunity/editing-support/undotree" },
+  { import = "astrocommunity/editing-support/comment-box-nvim" },
 }

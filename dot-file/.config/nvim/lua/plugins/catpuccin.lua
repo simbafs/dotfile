@@ -7,7 +7,7 @@ return {
       integrations = {
         notify = true,
       },
-      flavour = 'macchiato'
+      flavour = "macchiato",
     }
     vim.cmd.colorscheme "catppuccin"
   end,

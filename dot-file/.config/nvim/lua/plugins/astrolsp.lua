@@ -34,6 +34,13 @@ return {
           "mdx",
         },
       },
+      typst = {
+        tinymist = {
+          settings = {
+            formatterMode = "typstyle",
+          },
+        },
+      },
     },
   },
 }
