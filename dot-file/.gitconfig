@@ -5,12 +5,13 @@
 [alias]
 	tree = log --graph --all --oneline --decorate --abbrev-commit
 	stat = show --stat --oneline 
+	; diff = !git diff | git-split-diffs --color | less -rFX
+[core]
+	pager = git-split-diffs --color | less -rFX
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = true
-[core]
-	pager = git-split-diffs --color | less -rFX
 [cinnabar]
 	version-check = 1673269543
 [credential "https://github.com"]
