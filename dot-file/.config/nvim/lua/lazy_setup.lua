@@ -1,20 +1,7 @@
-function dump(o)
-  if type(o) == "table" then
-    local s = "{ "
-    for k, v in pairs(o) do
-      if type(k) ~= "number" then k = '"' .. k .. '"' end
-      s = s .. "[" .. k .. "] = " .. dump(v) .. ","
-    end
-    return s .. "} "
-  else
-    return tostring(o)
-  end
-end
-
 require("lazy").setup({
   {
     "AstroNvim/AstroNvim",
-    version = "^4", -- Remove version tracking to elect for nighly AstroNvim
+    version = "^5", -- Remove version tracking to elect for nightly AstroNvim
     import = "astronvim.plugins",
     opts = { -- AstroNvim options must be set here with the `import` key
       mapleader = " ", -- This ensures the leader key must be configured before Lazy is set up
@@ -26,8 +13,6 @@ require("lazy").setup({
   },
   { import = "community" },
   { import = "plugins" },
-  -- { "dmmulroy/ts-error-translator.nvim", ft = { "typescript", "typescriptreact" }, opts = {} },
-  -- { "dmmulroy/tsc.nvim", opts = {}, cmd = "TSC" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "catppuccin" } },
@@ -45,6 +30,3 @@ require("lazy").setup({
     },
   },
 } --[[@as LazyConfig]])
-
--- vim.lsp.inlay_hint.enable()
---

@@ -77,7 +77,7 @@ else
 
 	PATH=$HOME/.local/bin:$PATH
 
-	export PNPM_HOME="/home/simba-arch/.local/share/pnpm"
+	export PNPM_HOME="/home/simba/.local/share/pnpm"
 	case ":$PATH:" in
   	*":$PNPM_HOME:"*) ;;
   	*) export PATH="$PNPM_HOME:$PATH" ;;
@@ -90,7 +90,7 @@ else
 	# go
 	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
 
-	source "$HOME/.cargo/env"
+	# source "$HOME/.cargo/env"
 
 
 	# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -99,7 +99,9 @@ else
 
 	# eval "$(hugo completion zsh)"
 
-	# eval "$(tailscale completion zsh)"
+	if which tailscale &>/dev/null; then
+		eval "$(tailscale completion zsh)"
+	fi
 
 	# source $HOME/.cargo/env
 
@@ -125,10 +127,10 @@ else
 	# export BUN_INSTALL="$HOME/.bun"
 	# export PATH="$BUN_INSTALL/bin:$PATH"
 
-	eval $(cs completion zsh)
+	# eval $(cs completion zsh)
 
-	export LANG=zh_TW.UTF-8
-	export LC_ALL=zh_TW.UTF-8
+	# export LANG=zh_TW.UTF-8
+	# export LC_ALL=zh_TW.UTF-8
 
 	PATH=$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH
 fi

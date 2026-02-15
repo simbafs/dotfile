@@ -1,14 +1,6 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroCommunity: import any community modules here
--- We import this file in `lazy_setup.lua` before the `plugins/` folder.
--- This guarantees that the specs are processed before any user plugins.
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  -- "simbafs/astrocommunity",
-  -- branch = "simbafs/typst",
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.completion.avante-nvim" },
@@ -31,17 +23,17 @@ return {
   { import = "astrocommunity.pack.templ" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.mdx" },
-  { import = "astrocommunity.pack.xml" },
+  -- { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.pack.mdx" },
   { import = "astrocommunity.pack.zig" },
-  { import = "astrocommunity.pack.java" },
+  -- { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.svelte" },
-  { import = "astrocommunity.pack.php" },
+  -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
   -- { import = "astrocommunity.media.image-nvim" },
   -- { import = "astrocommunity/editing-support/multicursors-nvim" },
   { import = "astrocommunity/editing-support/undotree" },
-  { import = "astrocommunity/editing-support/comment-box-nvim" },
+  -- { import = "astrocommunity/editing-support/comment-box-nvim" },
 }
