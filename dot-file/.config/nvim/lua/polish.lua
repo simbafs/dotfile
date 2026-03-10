@@ -23,5 +23,5 @@ if vim.g.started_by_firenvim == true then
   vim.cmd "set ft=python"
 end
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 

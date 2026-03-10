@@ -18,18 +18,7 @@ return {
       underline = true,
     },
     -- passed to `vim.filetype.add`
-    filetypes = {
-      -- see `:h vim.filetype.add` for usage
-      extension = {
-        foo = "fooscript",
-      },
-      filename = {
-        [".foorc"] = "fooscript",
-      },
-      pattern = {
-        [".*/etc/foo/.*"] = "fooscript",
-      },
-    },
+    filetypes = {},
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
@@ -40,31 +29,9 @@ return {
         wrap = false, -- sets vim.opt.wrap
       },
       g = { -- vim.g.<key>
-        markdown_fenced_languages = {
-          "html",
-          "javascript",
-          "typescript",
-          "go",
-          "bash=sh",
-        },
-        firenvim_config = {
-          -- globalSettings = {},
-          localSettings = {
-            [".*"] = {
-              --   cmdline = "neovim",
-              --   content = "text",
-              priority = 0,
-              --   selector = "textarea",
-              takeover = "never",
-              filename = "/tmp/firenvim/{hostname}_{pathname}_{timestamp}.{extension}",
-            },
-            ["https://leetcode.com/"] = {
-              priority = 1,
-              takeover = "always",
-              selector = ".view-lines",
-            },
-          },
-        },
+        -- configure global vim variables (vim.g)
+        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+        -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -72,11 +39,9 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
-
-        -- ["<Leader>f"] = { "<cmd>Prettier<cr>", desc = "Format current buffer" },
         ["<M-j>"] = { "<cmd>m +1<CR>", desc = "Move current line down" },
         ["<M-k>"] = { "<cmd>m -2<CR>", desc = "Move current line up" },
+        ["<Leader>lF"] = { "<cmd>Prettier<cr>", desc = "Format current buffer" },
       },
     },
   },

@@ -12,8 +12,23 @@ return {
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
-      format_on_save = false,
+      format_on_save = {
+        enabled = false, -- enable or disable format on save globally
+        allow_filetypes = { -- enable format on save for specified filetypes only
+          -- "go",
+        },
+        ignore_filetypes = { -- disable format on save for specified filetypes
+          -- "python",
+        },
+      },
+      disabled = { -- disable formatting capabilities for the listed language servers
+        -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
+        -- "lua_ls",
+      },
       timeout_ms = 1000, -- default format timeout
+      -- filter = function(client) -- fully override the default formatting function
+      --   return true
+      -- end
     },
     -- enable servers that you already have installed without mason
     servers = {
@@ -87,27 +102,27 @@ return {
     },
     -- mappings to be set up on attaching of a language server
     mappings = {
-      -- n = {
+      n = {
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
-        -- gD = {
-        --   function() vim.lsp.buf.declaration() end,
-        --   desc = "Declaration of current symbol",
-        --   cond = "textDocument/declaration",
-        -- },
-        -- ["<Leader>uY"] = {
-        --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-        --   desc = "Toggle LSP semantic highlight (buffer)",
-        --   cond = function(client)
-        --     return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
-        --   end,
-        -- },
-      -- },
+        gD = {
+          function() vim.lsp.buf.declaration() end,
+          desc = "Declaration of current symbol",
+          cond = "textDocument/declaration",
+        },
+        ["<Leader>uY"] = {
+          function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+          desc = "Toggle LSP semantic highlight (buffer)",
+          cond = function(client)
+            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+          end,
+        },
+      },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
-    -- on_attach = function(client, bufnr)
-    --   -- this would disable semanticTokensProvider for all clients
-    --   -- client.server_capabilities.semanticTokensProvider = nil
-    -- end,
+    on_attach = function(client, bufnr)
+      -- this would disable semanticTokensProvider for all clients
+      -- client.server_capabilities.semanticTokensProvider = nil
+    end,
   },
 }

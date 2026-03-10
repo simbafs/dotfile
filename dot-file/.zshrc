@@ -131,6 +131,10 @@ else
 
 	# export LANG=zh_TW.UTF-8
 	# export LC_ALL=zh_TW.UTF-8
+	
+	if which opencode &>/dev/null; then
+		eval "$(opencode completion zsh)"
+	fi
 
 	PATH=$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH
 fi
