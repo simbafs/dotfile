@@ -1,0 +1,23 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"permission": {
+		"bash": {
+			"git add": "ask",
+			"git commit": "ask",
+			"rm *": "ask"
+		},
+		"read": {
+			"~/go": "allow"
+		}
+	},
+	"mcp": {
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp",
+			"headers": {
+				"CONTEXT7_API_KEY": "ctx7sk-e79a60d9-cca1-446e-ad6c-7be1257fbe7d"
+			},
+			"enabled": true
+		}
+	}
+}
