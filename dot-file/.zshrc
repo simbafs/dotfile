@@ -1,140 +1,126 @@
 if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]];then
 	exec tmux
 else
-	eval "$(oh-my-posh init zsh --config "$HOME"/.config/omp/bash.omp.json)"
+	# =========================
+	# Prompt
+	# =========================
+
+	eval "$(oh-my-posh init zsh --config "$HOME/.config/omp/bash.omp.json")"
+
+
+	# =========================
+	# Zinit
+	# =========================
 
 	ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-	[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname "$ZINIT_HOME")"
-	[ ! -d "$ZINIT_HOME"/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+
+	if [[ ! -d "$ZINIT_HOME/.git" ]]; then
+  	mkdir -p "$(dirname "$ZINIT_HOME")"
+  	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+	fi
+
 	source "${ZINIT_HOME}/zinit.zsh"
 
 	autoload -Uz _zinit
 	(( ${+_comps} )) && _comps[zinit]=_zinit
 
-	# Load a few important annexes, without Turbo
-	# (this is currently required for annexes)
-	zinit light zdharma-continuum/zinit-annex-as-monitor
-	zinit light zdharma-continuum/zinit-annex-bin-gem-node
-	zinit light zdharma-continuum/zinit-annex-patch-dl
-	zinit light zdharma-continuum/zinit-annex-rust
+	# Zinit annexes
+	# zinit light zdharma-continuum/zinit-annex-as-monitor
+	# zinit light zdharma-continuum/zinit-annex-bin-gem-node
+	# zinit light zdharma-continuum/zinit-annex-patch-dl
+	# zinit light zdharma-continuum/zinit-annex-rust
 
-	### End of Zinit's installer chunk
-
-	zinit light zsh-users/zsh-completions
-	zinit light zsh-users/zsh-autosuggestions
-	zinit light zsh-users/zsh-history-substring-search
-	zinit light zdharma-continuum/fast-syntax-highlighting
-	zinit light hlissner/zsh-autopair
-	zinit ice depth=1;
-	# zinit light romkatv/powerlevel10k
-
-	zinit snippet OMZ::lib/completion.zsh
-	zinit snippet OMZ::lib/history.zsh
+	# OMZ snippets
+	# zinit snippet OMZ::lib/history.zsh
 	zinit snippet OMZ::lib/key-bindings.zsh
-	zinit snippet OMZ::lib/theme-and-appearance.zsh
 
-	# for zsh-history-substring-search
-	bindkey '^[[A' history-substring-search-up
-	bindkey '^[[B' history-substring-search-down
-	# bindkey ',' autosuggest-accept
+	# Core plugins
+	zinit ice wait"1" lucid
+	zinit light zsh-users/zsh-autosuggestions
 
+	zinit ice wait"1" lucid
+	zinit light zsh-users/zsh-history-substring-search
+
+	zinit ice wait"1" lucid
+	zinit light zdharma-continuum/fast-syntax-highlighting
+
+	# Completion plugin
+	zinit ice wait"1" lucid blockf atload"zicompinit; zicdreplay"
+	zinit light zsh-users/zsh-completions
+
+	# Optional plugins
+	# 用得到再打開，先不要預設載入
+	zinit ice wait"2" lucid
+	zinit light hlissner/zsh-autopair
+
+	zinit ice wait"2" lucid
 	zinit load djui/alias-tips
 
-	# The following lines were added by compinstall
+
+	# =========================
+	# Completion
+	# =========================
+
+	# Completion styles
 	zstyle ':completion:*' completer _complete _ignored _correct
 	zstyle ':completion:*' menu yes select
-	zstyle :compinstall filename '/home/simba/.zshrc'
-	# case sensitive
 	zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-	autoload -Uz compinit
-	compinit
-	# End of lines added by compinstall
 
-	# completions
-	fpath=(~/.zsh $fpath)
+	# Custom completion search paths
+	fpath=(
+  	"$HOME/.zsh"
+  	$fpath
+	)
+
+	# Init completion system
 	autoload -Uz compinit
-	compinit -u
+	compinit -d "$HOME/.zcompdump"
+
+	# External command completions
+	# load_cached_completion opencode "opencode completion zsh"
+	# load_cached_completion tailscale "tailscale completion zsh"
+
+	# Key bindings
+	# Use Ctrl+Up/Down for history substring search
+	bindkey '^[[A' history-substring-search-up
+	bindkey '^[[B' history-substring-search-down
+
+
+	# =========================
+	# Env / Path
+	# =========================
 
 	SAVEHIST=1000
-	export HISTFILE=~/.zsh_history
+	HISTFILE="$HOME/.zsh_history"
 
-	# others
-	# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+	export EDITOR="nvim"
 
-	export EDITOR=nvim
-
-	# gpg-agent ssh
+	# GPG agent as SSH agent
 	unset SSH_AGENT_PID
-	if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-		export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+	if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
+  	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	fi
 
-	# Set GPG TTY for pinentry
-	# export GPG_TTY=$(tty)
-	# gpg-connect-agent updatestartuptty /bye &>/dev/null
+	# PATH
+	typeset -U path PATH
 
-	source $HOME/.alias.sh
+	path=(
+  	"$HOME/.local/bin"
+  	"$HOME/.local/share/pnpm"
+  	"/usr/local/go/bin"
+  	"$HOME/go/bin"
+  	# "$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin"
+  	$path
+	)
 
-	PATH=$HOME/.local/bin:$PATH
-
-	export PNPM_HOME="/home/simba/.local/share/pnpm"
-	case ":$PATH:" in
-  	*":$PNPM_HOME:"*) ;;
-  	*) export PATH="$PNPM_HOME:$PATH" ;;
-	esac
-
-	# deno
-	# export DENO_INSTALL="/home/simba/.deno"
-	# export PATH="$DENO_INSTALL/bin:$PATH"
-
-	# go
-	export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
-
-	# source "$HOME/.cargo/env"
+	export PNPM_HOME="$HOME/.local/share/pnpm"
+	export PATH
 
 
-	# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+	# =========================
+	# Local overrides
+	# =========================
 
-	# eval "$(devpod completion zsh)"
-
-	# eval "$(hugo completion zsh)"
-
-	if which tailscale &>/dev/null; then
-		eval "$(tailscale completion zsh)"
-	fi
-
-	# source $HOME/.cargo/env
-
-	# ipfs
-	# eval "$(ipfs commands completion bash)"
-
-	# export RISCV=/opt/riscv
-	# export PATH=$PATH:$RISCV/bin
-
-	# bun
-	# export BUN_INSTALL="$HOME/.bun"
-	# export PATH="$BUN_INSTALL/bin:$PATH"
-
-	# flutter
-	# export PATH=/usr/local/flutter/bin:$PATH
-
-	# export ANDROID_HOME=$HOME/Android/Sdk
-	# export NDK_HOME=$HOME/Android/Sdk/ndk/28.0.12433566
-
-	# bun completions
-	# [ -s "/home/simba/.bun/_bun" ] && source "/home/simba/.bun/_bun"
-	# # bun
-	# export BUN_INSTALL="$HOME/.bun"
-	# export PATH="$BUN_INSTALL/bin:$PATH"
-
-	# eval $(cs completion zsh)
-
-	# export LANG=zh_TW.UTF-8
-	# export LC_ALL=zh_TW.UTF-8
-	
-	if which opencode &>/dev/null; then
-		eval "$(opencode completion zsh)"
-	fi
-
-	PATH=$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH
+	# Aliases
+	[[ -f "$HOME/.alias.sh" ]] && source "$HOME/.alias.sh"
 fi

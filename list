@@ -12,3 +12,5 @@
 .config/waybar
 .config/dunst
 .config/kitty
+.zprofile
+.tmux-menu.sh

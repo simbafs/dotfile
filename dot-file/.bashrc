@@ -115,6 +115,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
 
 export STM32_PRG_PATH=/home/simba-arch/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin

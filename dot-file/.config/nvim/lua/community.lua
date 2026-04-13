@@ -26,6 +26,7 @@ return {
   { import = "astrocommunity.pack.mdx" },
   { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.pack.svelte" },
+  { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
