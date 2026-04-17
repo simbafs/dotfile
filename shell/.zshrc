@@ -97,6 +97,9 @@ else
   	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	fi
 
+	export GPG_TTY=$(tty)
+	gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+
 	# PATH
 	typeset -U path PATH
 
