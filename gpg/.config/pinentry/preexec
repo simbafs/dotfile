@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PATH=$HOME/.local/bin:$PATH
+
+if check_ssh_tmux.sh; then
+  exec /usr/bin/pinentry-curses "$@"
+else 
+  exec /usr/bin/pinentry-qt "$@"
+fi
