@@ -25,10 +25,10 @@ else
 	(( ${+_comps} )) && _comps[zinit]=_zinit
 
 	# Zinit annexes
-	# zinit light zdharma-continuum/zinit-annex-as-monitor
-	# zinit light zdharma-continuum/zinit-annex-bin-gem-node
-	# zinit light zdharma-continuum/zinit-annex-patch-dl
-	# zinit light zdharma-continuum/zinit-annex-rust
+	zinit light zdharma-continuum/zinit-annex-as-monitor
+	zinit light zdharma-continuum/zinit-annex-bin-gem-node
+	zinit light zdharma-continuum/zinit-annex-patch-dl
+	zinit light zdharma-continuum/zinit-annex-rust
 
 	# OMZ snippets
 	# zinit snippet OMZ::lib/history.zsh
@@ -76,10 +76,6 @@ else
 	autoload -Uz compinit
 	compinit -d "$HOME/.zcompdump"
 
-	# External command completions
-	# load_cached_completion opencode "opencode completion zsh"
-	# load_cached_completion tailscale "tailscale completion zsh"
-
 	# Key bindings
 	# Use Ctrl+Up/Down for history substring search
 	bindkey '^[[A' history-substring-search-up
@@ -109,7 +105,6 @@ else
   	"$HOME/.local/share/pnpm"
   	"/usr/local/go/bin"
   	"$HOME/go/bin"
-  	# "$HOME/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin"
   	$path
 	)
 
