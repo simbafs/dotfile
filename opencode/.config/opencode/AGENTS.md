@@ -91,3 +91,20 @@ DESIGN.md should contain
 1. use `docker compose` instead of `docker-compose`
 2. no `version: 3.8` in compose.yaml
 3. use `compose.yaml`, not `docker-compose.yml`, `compose.yml` or `docker-compose.yml`
+
+# code comments
+
+## Comment reasons for changes
+
+When modifying code, especially fixing bugs or changing behavior, ALWAYS write comments explaining:
+1. WHY this change is needed (what problem it solves)
+2. What was the previous behavior
+3. What is the new behavior
+
+## Maintain previous fixes
+
+When modifying code that has previous fix comments:
+1. READ the existing comments first
+2. Consider if your new changes might BREAK the previous fixes
+3. If your change could affect a previous fix, add a comment explaining why it's still valid or update the comment if the fix approach changes
+4. Do not silently remove or modify comments that explain previous fixes
