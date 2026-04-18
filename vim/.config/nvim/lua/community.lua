@@ -3,6 +3,7 @@ return {
   "AstroNvim/astrocommunity",
   -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" }, -- no longer maintained, switch to selimacerbas/markdown-preview.nvim
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.cmp-tmux" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.astro" },
@@ -28,7 +29,7 @@ return {
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.media.codesnap-nvim" },
-  { import = "astrocommunity/editing-support/undotree" },
+  { import = "astrocommunity.editing-support.undotree" },
 
   -- { import = "astrocommunity.pack.xml" },
   -- { import = "astrocommunity.pack.java" },

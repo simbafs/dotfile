@@ -15,6 +15,7 @@
   "clangd_extensions.nvim": { "branch": "main", "commit": "78c2ecd659d54972be17aa6ba2deac3c53223b80" },
   "cmake-tools.nvim": { "branch": "master", "commit": "bac6ba2354a52c61f731c751cdb0f4e24669bf0d" },
   "cmp-dap": { "branch": "master", "commit": "ea92773e84c0ad3288c3bc5e452ac91559669087" },
+  "cmp-tmux": { "branch": "main", "commit": "95b1b921802e6f60627b3e76afb9380fddd87f9a" },
   "codesnap.nvim": { "branch": "main", "commit": "0a0941340376439a25d6cd8a4d1d2b372edbfdbd" },
   "copilot.lua": { "branch": "master", "commit": "ad7e729e9a6348f7da482be0271d452dbc4c8e2c" },
   "crates.nvim": { "branch": "main", "commit": "694357861ec9ebf12475ddcdd04ea45a0923c32d" },
