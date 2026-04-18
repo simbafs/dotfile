@@ -1,10 +1,9 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.completion.avante-nvim" },
+  { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
@@ -23,8 +22,7 @@ return {
   { import = "astrocommunity.pack.templ" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.mdx" },
-  { import = "astrocommunity.pack.mdx" },
-  { import = "astrocommunity.pack.zig" },
+  -- { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.scrolling.nvim-scrollbar" },

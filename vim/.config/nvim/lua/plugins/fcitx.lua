@@ -3,7 +3,7 @@ return {
   config = function()
     vim.fn.executable "fcitx5-remote"
     local en = "keyboard-us"
-    local tw = "Chewing"
+    local tw = "McBopomofo"
     require("fcitx5").setup {
       imname = {
         norm = en,
