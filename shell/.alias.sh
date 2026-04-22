@@ -49,6 +49,8 @@ alias gomon="nodemon -e go --watch './**/*.go' --signal SIGTERM --exec"
 alias pymon="nodemon -e py -w './**/*.py' -x"
 alias xxd='xxd -R always'
 alias speedtest='speedtest --simple'
+alias lg=lazygit
+alias ld=lazydocker
 
 notmux() {
 	touch ~/.notmux &&
