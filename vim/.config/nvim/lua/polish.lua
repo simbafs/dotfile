@@ -25,7 +25,4 @@ end
 
 -- vim.opt.colorcolumn = "80"
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*/ansible/*.yaml", "*/ansible/*.yml" },
-  callback = function() vim.cmd "setlocal filetype=yaml.ansible" end,
-})
+autocmd("FileType", { "ansible" }, function() vim.cmd "setlocal filetype=yaml.ansible" end)
