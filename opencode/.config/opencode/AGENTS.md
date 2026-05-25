@@ -74,6 +74,11 @@ DESIGN.md should contain
 3. do not use postcss and autoprefix
 4. do not configure tailwindcss with tailwind.config.js, this is the old method
 
+## React/HTML
+
+1. always add `type="..."` to button
+2. never directly use `useEffect()`, wrap it in a custom hook and use the custom hook
+
 # golang
 
 1. do not place code in pkg/ internal/ and cmd/
@@ -86,11 +91,25 @@ DESIGN.md should contain
 8. do not use clean architecture without my clear instruction, use monolithic
 9. write `for i := range n` instead of `for i := 0; i < n; i++`, `for range n` if you do not need i
 
+## gopls
+
+3. Common issues to fix:
+   - Use `context.TODO()` instead of nil context in logger calls
+   - Use `strings.CutPrefix` instead of manual `strings.HasPrefix` + slicing
+   - Use `for range` instead of `for i := 0; i < n; i++` when index not needed
+   - Use `slices.Contains` instead of manual loop for membership check
+   - Use `strings.ReplaceAll` instead of `strings.Replace(s, old, new, -1)`
+   - Remove redundant nil checks before `len()` for maps/slices
+
 # docker compose
 
 1. use `docker compose` instead of `docker-compose`
 2. no `version: 3.8` in compose.yaml
 3. use `compose.yaml`, not `docker-compose.yml`, `compose.yml` or `docker-compose.yml`
+
+## Server management
+
+1. When killing the server process, use `pkill -f podcast-server` instead of `lsof -ti:8080 | xargs kill -9` to avoid killing other processes (e.g., browsers) that use the same port
 
 # code comments
 
