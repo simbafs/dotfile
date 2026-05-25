@@ -70,3 +70,19 @@ fixGPG() {
 	export GPG_TTY=$(tty)
 	echo UPDATESTARTUPTTY | gpg-connect-agent
 }
+
+replace() {
+  # 檢查是否有輸入參數
+  if [ -z "$1" ]; then
+    echo "用法: replace 's/舊字串/新字串/g'"
+    return 1
+  fi
+
+  # 使用 find 搜尋檔案並排除特定目錄
+  # -prune 會停止進入符合條件的目錄
+  # -type f 確保只處理檔案
+  find . \
+    -name ".git" -prune -o \
+    -name "node_modules" -prune -o \
+    -type f -exec sed -i "$1" {} +
+}

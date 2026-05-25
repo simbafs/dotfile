@@ -117,3 +117,4 @@ if ! shopt -oq posix; then
 fi
 
 export STM32_PRG_PATH=/home/simba-arch/.local/share/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
+. "$HOME/.cargo/env"
