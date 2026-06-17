@@ -1,4 +1,4 @@
-if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]];then
+if [[ -z $TMUX ]] && [[ ! -f $HOME/.notmux ]]; then
 	exec tmux
 else
 	# =========================
@@ -7,7 +7,6 @@ else
 
 	eval "$(oh-my-posh init zsh --config "$HOME/.config/omp/bash.omp.json")"
 
-
 	# =========================
 	# Zinit
 	# =========================
@@ -15,14 +14,14 @@ else
 	ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 	if [[ ! -d "$ZINIT_HOME/.git" ]]; then
-  	mkdir -p "$(dirname "$ZINIT_HOME")"
-  	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+		mkdir -p "$(dirname "$ZINIT_HOME")"
+		git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 	fi
 
 	source "${ZINIT_HOME}/zinit.zsh"
 
 	autoload -Uz _zinit
-	(( ${+_comps} )) && _comps[zinit]=_zinit
+	((${+_comps})) && _comps[zinit]=_zinit
 
 	# Zinit annexes
 	zinit light zdharma-continuum/zinit-annex-as-monitor
@@ -56,7 +55,6 @@ else
 	zinit ice wait"2" lucid
 	zinit load djui/alias-tips
 
-
 	# =========================
 	# Completion
 	# =========================
@@ -68,8 +66,8 @@ else
 
 	# Custom completion search paths
 	fpath=(
-  	"$HOME/.zsh"
-  	$fpath
+		"$HOME/.zsh"
+		$fpath
 	)
 
 	# Init completion system
@@ -80,7 +78,6 @@ else
 	# Use Ctrl+Up/Down for history substring search
 	bindkey '^[[A' history-substring-search-up
 	bindkey '^[[B' history-substring-search-down
-
 
 	# =========================
 	# Env / Path
@@ -94,7 +91,7 @@ else
 	# GPG agent as SSH agent
 	unset SSH_AGENT_PID
 	if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
-  	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+		export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 	fi
 
 	export GPG_TTY=$(tty)
@@ -104,16 +101,17 @@ else
 	typeset -U path PATH
 
 	path=(
-  	"$HOME/.local/bin"
-  	"$HOME/.local/share/pnpm"
-  	"/usr/local/go/bin"
-  	"$HOME/go/bin"
-  	$path
+		"$HOME/.local/bin"
+		"$HOME/.local/share/pnpm"
+		"/usr/local/go/bin"
+		"$HOME/go/bin"
+		$path
 	)
 
 	export PNPM_HOME="$HOME/.local/share/pnpm"
 	export PATH
 
+	export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 	# =========================
 	# Local overrides
