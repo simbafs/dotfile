@@ -102,11 +102,14 @@ else
 
 	path=(
 		"$HOME/.local/bin"
-		"$HOME/.local/share/pnpm"
+		"$HOME/.local/share/pnpm/bin"
 		"/usr/local/go/bin"
 		"$HOME/go/bin"
+		"/opt/flutter/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin"
 		$path
 	)
+
+	export ANDROID_HOME=$HOME/Android/Sdk
 
 	export PNPM_HOME="$HOME/.local/share/pnpm"
 	export PATH
