@@ -26,3 +26,5 @@ end
 -- vim.opt.colorcolumn = "80"
 
 autocmd("FileType", { "ansible" }, function() vim.cmd "setlocal filetype=yaml.ansible" end)
+
+-- autocmd("FileType", { "typst" }, function() vim.o.tabstop = 2 end)  

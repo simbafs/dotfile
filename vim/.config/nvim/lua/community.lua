@@ -4,6 +4,7 @@ return {
   -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" }, -- no longer maintained, switch to selimacerbas/markdown-preview.nvim
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.completion.cmp-tmux" },
+  { import = "astrocommunity.file-explorer.yazi-nvim" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.astro" },
