@@ -8,6 +8,8 @@
 	; diff = !git diff | git-split-diffs --color | less -rFX
 [core]
 	pager = git-split-diffs --color | less -rFX
+[split-diffs]
+	theme-name = light
 [init]
 	defaultBranch = main
 [commit]
