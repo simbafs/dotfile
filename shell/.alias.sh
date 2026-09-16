@@ -52,6 +52,7 @@ alias speedtest='speedtest --simple'
 alias lg=lazygit
 alias ld=lazydocker
 alias open=xdg-open
+alias whois=quien
 
 notmux() {
 	touch ~/.notmux &&

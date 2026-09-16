@@ -27,4 +27,10 @@ end
 
 autocmd("FileType", { "ansible" }, function() vim.cmd "setlocal filetype=yaml.ansible" end)
 
+vim.filetype.add({
+  filename = {
+    Caddyfile = "caddy",
+  },
+})
+
 -- autocmd("FileType", { "typst" }, function() vim.o.tabstop = 2 end)  
