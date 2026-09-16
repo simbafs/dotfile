@@ -22,5 +22,36 @@
     "skill": {
       "*": "allow"
     }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama",
+      "options": {
+        "baseURL": "http://imslab:11434/v1"
+      },
+      "models": {
+        "qwen3:8b": {
+          "name": "Qwen3 8B - General"
+        },
+        "qwen2.5-coder:7b": {
+          "name": "Qwen2.5 Coder 7B - Coding"
+        },
+        "qwen3.5-opencode": {
+          "name": "Qwen3.5 4B - OpenCode 32K",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "qwen3.5-opencode-64k": {
+          "name": "Qwen3.5 4B - OpenCode 64K",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        },
+      }
+    }
   }
 }
