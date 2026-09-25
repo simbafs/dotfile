@@ -68,6 +68,24 @@ return {
           },
         },
       },
+      yamlls = {
+        settings = {
+          yaml = {
+            validate = true,
+            completion = true,
+            hover = true,
+
+            schemas = {
+              kubernetes = {
+                "k8s/**/*.yaml",
+                "k8s/**/*.yml",
+                "manifests/**/*.yaml",
+                "manifests/**/*.yml",
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
