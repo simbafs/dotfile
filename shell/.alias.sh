@@ -88,3 +88,7 @@ replace() {
     -name "node_modules" -prune -o \
     -type f -exec sed -i "$1" {} +
 }
+
+mkdircd() {
+	mkdir -p "$1" && cd "$1" || return 1
+}
