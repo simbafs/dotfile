@@ -54,9 +54,11 @@ alias ld=lazydocker
 alias open=xdg-open
 alias whois=quien
 
+alias terminal=konsole
+
 notmux() {
 	touch ~/.notmux &&
-		kitty &
+		terminal &
 	disown &&
 		rm ~/.notmux
 }
@@ -91,4 +93,23 @@ replace() {
 
 mkdircd() {
 	mkdir -p "$1" && cd "$1" || return 1
+}
+
+refresh_theme() {
+    if [[ -z "${TMUX:-}" ]]; then
+        echo "Not inside tmux" >&2
+        return 1
+    fi
+
+    local pid
+
+    # 找出目前 tmux Client 的 PID
+    pid=$(tmux display-message -p '#{client_pid}')
+
+    if [[ ! "$pid" =~ ^[0-9]+$ ]]; then
+        echo "Cannot find tmux client PID" >&2
+        return 1
+    fi
+
+    kill -WINCH "$pid"
 }
